@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rupesh Bhagwan Ishi – Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+GLOBAL
+========================= */
+
+:root{
+--bg:#0A0F1F;
+--cyan:#00E5FF;
+--orange:#FF6B35;
+--glass:rgba(255,255,255,0.06);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Inter,sans-serif;
+background:var(--bg);
+color:white;
+overflow-x:hidden;
+}
+
+/* container */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+}
+
+/* headings */
+
+h1,h2,h3{
+font-family:"Plus Jakarta Sans",sans-serif;
+letter-spacing:.5px;
+}
+
+/* glass card */
+
+.glass{
+background:var(--glass);
+border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+border-radius:14px;
+padding:30px;
+box-shadow:0 20px 40px rgba(0,0,0,.5);
+}
+
+/* buttons */
+
+.btn{
+padding:12px 28px;
+border-radius:30px;
+border:none;
+cursor:pointer;
+font-weight:500;
+}
+
+.btn-primary{
+background:var(--cyan);
+color:black;
+}
+
+.btn-outline{
+border:1px solid var(--cyan);
+background:none;
+color:white;
+}
+
+/* =========================
+CUSTOM CURSOR
+========================= */
+
+.cursor-dot,
+.cursor-ring{
+position:fixed;
+pointer-events:none;
+z-index:9999;
+}
+
+.cursor-dot{
+width:6px;
+height:6px;
+background:var(--cyan);
+border-radius:50%;
+}
+
+.cursor-ring{
+width:28px;
+height:28px;
+border:2px solid var(--cyan);
+border-radius:50%;
+transition:transform .2s;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+canvas{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:25px;
+}
+
+.typing{
+color:var(--cyan);
+}
+
+.cta{
+display:flex;
+gap:20px;
+justify-content:center;
+}
+
+/* ticker */
+
+.ticker{
+position:fixed;
+bottom:0;
+width:100%;
+background:black;
+color:var(--orange);
+padding:6px;
+font-size:14px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+.ticker span{
+display:inline-block;
+padding-left:100%;
+animation:ticker 18s linear infinite;
+}
+
+@keyframes ticker{
+0%{transform:translateX(0)}
+100%{transform:translateX(-100%)}
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.stats{
+display:flex;
+gap:30px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.stat{
+color:var(--cyan);
+font-weight:600;
+}
+
+/* =========================
+SKILLS
+========================= */
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.skill-bar{
+height:8px;
+background:#222;
+border-radius:6px;
+margin-top:8px;
+overflow:hidden;
+}
+
+.skill-fill{
+height:100%;
+background:linear-gradient(90deg,var(--cyan),var(--orange));
+width:0;
+transition:width 1.2s;
+}
+
+/* =========================
+INTERESTS
+========================= */
+
+.interests{
+display:flex;
+gap:30px;
+overflow-x:auto;
+padding-bottom:20px;
+}
+
+.interest{
+min-width:260px;
+}
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+border-left:2px solid var(--cyan);
+padding-left:20px;
+}
+
+.timeline-item{
+margin-bottom:30px;
+}
+
+/* =========================
+PROJECTS
+========================= */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.project img{
+width:100%;
+border-radius:10px;
+}
+
+/* =========================
+TESTIMONIALS
+========================= */
+
+.testimonials{
+display:flex;
+gap:20px;
+overflow-x:auto;
+}
+
+/* =========================
+CONTACT
+========================= */
+
+form{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:20px;
+}
+
+input,textarea{
+padding:10px;
+border-radius:6px;
+border:none;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+text-align:center;
+padding:40px;
+margin-top:50px;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+.back{
+color:var(--cyan);
+cursor:pointer;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:40px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- PARTICLE CANVAS -->
+<canvas id="particles"></canvas>
+
+<!-- HERO -->
+<section class="hero">
+
+<h1>Rupesh Bhagwan Ishi</h1>
+
+<p class="typing"></p>
+
+<p>Building my empire – one skill at a time.</p>
+
+<div class="cta">
+<a href="#about"><button class="btn btn-primary">Explore my world</button></a>
+<a href="#contact"><button class="btn btn-outline">Contact me</button></a>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="container" id="about">
+
+<div class="glass">
+
+<h2>About Me</h2>
+
+<p>
+I am a curious and driven 12th grade student from Maharashtra.
+I am passionate about the IT sector, stock trading and cricket.
+Even though I am just starting my journey, I learn quickly,
+adapt easily and enjoy working in teams.
+</p>
+
+<div class="stats">
+
+<div class="stat">Learning hours / week: 40+</div>
+<div class="stat">Matches played: 12</div>
+<div class="stat">Trading sim accuracy: 78%</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="container">
+
+<h2>Skills & Strengths</h2>
+
+<div class="skills">
+
+<div class="glass">
+Teamwork
+<div class="skill-bar"><div class="skill-fill" data-skill="90%"></div></div>
+</div>
+
+<div class="glass">
+Fast Grasping Power
+<div class="skill-bar"><div class="skill-fill" data-skill="85%"></div></div>
+</div>
+
+<div class="glass">
+Adaptable
+<div class="skill-bar"><div class="skill-fill" data-skill="88%"></div></div>
+</div>
+
+<div class="glass">
+Coding Fundamentals
+<div class="skill-bar"><div class="skill-fill" data-skill="60%"></div></div>
+</div>
+
+<div class="glass">
+Trading Basics
+<div class="skill-bar"><div class="skill-fill" data-skill="70%"></div></div>
+</div>
+
+<div class="glass">
+Cricket Strategy
+<div class="skill-bar"><div class="skill-fill" data-skill="75%"></div></div>
+</div>
+
+</div>
+
+</section>
+
+<!-- INTERESTS -->
+
+<section class="container">
+
+<h2>Things I Love</h2>
+
+<div class="interests">
+
+<div class="glass interest">
+<h3>IT Sector</h3>
+<p>Learning web development, AI tools and cybersecurity.</p>
+</div>
+
+<div class="glass interest">
+<h3>Trading</h3>
+<p>Support/resistance, risk management and intraday analysis.</p>
+</div>
+
+<div class="glass interest">
+<h3>Cricket</h3>
+<p>Studying strategies, batting order and match analytics.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="container">
+
+<h2>My Learning Journey</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">Started 12th Grade</div>
+<div class="timeline-item">Learned HTML & CSS Basics</div>
+<div class="timeline-item">Built First Portfolio</div>
+<div class="timeline-item">Next Goal ? JavaScript & React</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="container">
+
+<h2>Mini Projects</h2>
+
+<div class="projects">
+
+<div class="glass project">
+<img src="https://picsum.photos/600/400?1">
+<h3>Trading Journal App</h3>
+<p>Concept for tracking trades.</p>
+</div>
+
+<div class="glass project">
+<img src="https://picsum.photos/600/400?2">
+<h3>Cricket Score Predictor</h3>
+<p>Concept analytics model.</p>
+</div>
+
+<div class="glass project">
+<img src="https://picsum.photos/600/400?3">
+<h3>Learning Dashboard</h3>
+<p>Track IT learning progress.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="container">
+
+<h2>Encouragement</h2>
+
+<div class="testimonials">
+
+<div class="glass">“Rupesh learns new tech incredibly fast.” – Classmate</div>
+
+<div class="glass">“He always analyzes problems deeply.” – Teacher</div>
+
+<div class="glass">“Great teamwork and dedication.” – Friend</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="container" id="contact">
+
+<h2>Contact</h2>
+
+<form onsubmit="event.preventDefault();alert('Message sent (demo)');">
+
+<input placeholder="Name" required>
+<input placeholder="Email" required>
+<textarea placeholder="Message"></textarea>
+
+<button class="btn btn-primary">Send Message</button>
+
+</form>
+
+<p style="margin-top:20px">Email: rupeshishi45@gmail.com</p>
+
+</section>
+
+<footer>
+
+<p>Rupesh Bhagwan Ishi – First Portfolio 2026</p>
+
+<div class="back" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+Back to top ?
+</div>
+
+</footer>
+
+<div class="ticker">
+<span>?? NIFTY +0.8% | BTC 64200 | MI vs CSK 178/4 | Learning HTML & Trading Every Day</span>
+</div>
+
+<script>
+
+/* ========================
+TYPING EFFECT
+======================== */
+
+const words=["IT Enthusiast","Trader","Cricketer","Fast Learner"];
+let i=0;
+let j=0;
+let current="";
+let isDeleting=false;
+
+function type(){
+
+current=words[i];
+
+if(isDeleting){
+
+document.querySelector(".typing").textContent=current.substring(0,j--);
+
+if(j<0){
+isDeleting=false;
+i=(i+1)%words.length;
+}
+
+}
+
+else{
+
+document.querySelector(".typing").textContent=current.substring(0,j++);
+
+if(j>current.length){
+isDeleting=true;
+}
+
+}
+
+setTimeout(type,120);
+
+}
+
+type();
+
+/* ========================
+SKILL ANIMATION
+======================== */
+
+window.addEventListener("load",()=>{
+document.querySelectorAll(".skill-fill").forEach(el=>{
+el.style.width=el.dataset.skill;
+});
+});
+
+/* ========================
+CUSTOM CURSOR
+======================== */
+
+const dot=document.querySelector(".cursor-dot");
+const ring=document.querySelector(".cursor-ring");
+
+document.addEventListener("mousemove",e=>{
+dot.style.left=e.clientX+"px";
+dot.style.top=e.clientY+"px";
+ring.style.left=e.clientX-10+"px";
+ring.style.top=e.clientY-10+"px";
+});
+
+/* ========================
+PARTICLES
+======================== */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+let particles=[];
+
+function resize(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener("resize",resize);
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+vx:(Math.random()-.5)*.5,
+vy:(Math.random()-.5)*.5
+});
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+p.x+=p.vx;
+p.y+=p.vy;
+
+ctx.fillStyle="#00E5FF";
+ctx.beginPath();
+ctx.arc(p.x,p.y,2,0,Math.PI*2);
+ctx.fill();
+
+particles.forEach(p2=>{
+let dist=Math.hypot(p.x-p2.x,p.y-p2.y);
+if(dist<120){
+ctx.strokeStyle="rgba(0,229,255,.1)";
+ctx.beginPath();
+ctx.moveTo(p.x,p.y);
+ctx.lineTo(p2.x,p2.y);
+ctx.stroke();
+}
+});
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>

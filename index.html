@@ -806,5 +806,63 @@
 </div>
 
 <script src="script.js"></script>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDk-L-q_2TYaD75VgvjGv75vuE5XygBSpg",
+
+authDomain: "rupesh-portfolio-66b1c.firebaseapp.com",
+
+projectId: "rupesh-portfolio-66b1c",
+
+storageBucket: "rupesh-portfolio-66b1c.firebasestorage.app",
+
+messagingSenderId: "483425715165",
+
+appId: "1:483425715165:web:f05d71e869d0ac5dddec3"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+window.sendMessage = async function(){
+
+let name =
+document.getElementById("name").value;
+
+let email =
+document.getElementById("email").value;
+
+let message =
+document.getElementById("message").value;
+
+await addDoc(collection(db,"messages"),{
+
+name,
+email,
+message,
+time:new Date()
+
+});
+
+alert("Message Sent Successfully");
+
+}
+
+</script>
 </body>
 </html>

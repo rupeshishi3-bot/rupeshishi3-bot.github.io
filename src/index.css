@@ -1,4 +1,4 @@
-/* ===== RUPESH ISHI — PORTFOLIO CSS ===== */
+/* ===== RUPESH ISHI ï¿½ PORTFOLIO CSS ===== */
 
 /* ---- ROOT VARIABLES ---- */
 :root {
@@ -1589,4 +1589,24 @@ body:has(button:hover) #cursor-dot { transform: translate(-50%,-50%) scale(2.5);
   .hero-stats { flex-direction: column; gap: 1rem; }
   .stat-divider { display: none; }
   .skills-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Dynamic runtime animations and touch optimizations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+@keyframes sparkle-anim {
+  0% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 10px currentColor; }
+  100% { opacity: 0; transform: scale(0) translateY(-20px); }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto !important; }
+  button, a { cursor: pointer !important; }
+  #cursor-glow, #cursor-dot { display: none !important; }
 }

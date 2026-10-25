@@ -1,4 +1,4 @@
-/* ===== RUPESH ISHI � PORTFOLIO CSS ===== */
+/* ===== RUPESH ISHI · PORTFOLIO CSS ===== */
 
 /* ---- ROOT VARIABLES ---- */
 :root {
@@ -1592,7 +1592,129 @@ body:has(button:hover) #cursor-dot { transform: translate(-50%,-50%) scale(2.5);
 }
 
 
-/* Dynamic runtime animations and touch optimizations */
+/* ---- FILTER TABS & PROJECT STATUS EXTENSIONS ---- */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+.filter-btn {
+  padding: 0.45rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  transition: all var(--transition-fast);
+  cursor: none;
+}
+.filter-btn:hover {
+  border-color: var(--blue);
+  color: var(--text);
+  background: var(--surface-2);
+}
+.filter-btn.active {
+  background: var(--grad-1);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+}
+
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  border: 1px solid transparent;
+}
+.status-tag.active {
+  background: rgba(34,211,238,0.1);
+  color: var(--cyan);
+  border-color: rgba(34,211,238,0.3);
+}
+.status-tag.maintenance {
+  background: rgba(245,158,11,0.1);
+  color: #fbbf24;
+  border-color: rgba(245,158,11,0.3);
+}
+.status-tag.rebuilding {
+  background: rgba(168,85,247,0.1);
+  color: var(--purple);
+  border-color: rgba(168,85,247,0.3);
+}
+.status-tag.partially-built {
+  background: rgba(239,68,68,0.1);
+  color: #f87171;
+  border-color: rgba(239,68,68,0.3);
+}
+.status-tag.verifying {
+  background: rgba(59,130,246,0.1);
+  color: var(--blue-glow);
+  border-color: rgba(59,130,246,0.3);
+}
+
+.project-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--silver);
+  background: rgba(0,0,0,0.3);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--surface-border);
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.project-note strong {
+  color: var(--blue-glow);
+}
+
+.proj-link-disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.proj-link-disabled a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.proj-link-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: all var(--transition-fast);
+}
+.proj-link-cta:hover {
+  background: var(--grad-1);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+}
+
+/* Animations */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-6px); }

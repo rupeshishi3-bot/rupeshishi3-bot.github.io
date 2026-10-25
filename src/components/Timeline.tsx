@@ -11,27 +11,22 @@ const events: TimelineEvent[] = [
   {
     year: '2020',
     title: 'The Origin',
-    desc: 'Wrote my first HTML file. Fell completely in love with the idea that code becomes something humans see, feel, and use.',
-  },
-  {
-    year: '2021',
-    title: 'CSS Mastery',
-    desc: 'Went deep on CSS animations, layouts, and design systems. Realized that design and code are the same thing just different languages.',
+    desc: 'Wrote my first HTML and CSS lines. Fell in love with the power of code turning ideas into visible, interactive human experiences.',
   },
   {
     year: '2022',
-    title: 'JavaScript Era',
-    desc: 'Unlocked the full power of JavaScript. Built my first interactive apps, APIs, and browser-based tools. Shipped 10+ projects.',
+    title: 'JavaScript & Systems Architecture',
+    desc: 'Deepened mastery of modern JavaScript, responsive CSS layouts, and component-driven development across multiple client projects.',
   },
   {
-    year: '2023',
-    title: 'AI Awakening',
-    desc: 'Discovered the transformative power of AI. Became obsessed with prompt engineering, AI APIs, and building intelligent web systems.',
+    year: '2024',
+    title: 'AI Awakening & Edge Computing',
+    desc: 'Began architecting AI-assisted workflows, prompt engineering systems, and deploying serverless functions with Cloudflare Workers.',
   },
   {
-    year: '2024-25',
-    title: 'ToolVerse & Beyond',
-    desc: 'Launched ToolVerse AI, multiple SaaS products, and this portfolio. Now building at the frontier of AI + Web technology.',
+    year: '2025-26',
+    title: 'Digital Product Creator',
+    desc: 'Architecting 10 digital products including PrintWise, ATMOS, ATS X-Ray, DocReady, and ProjectFlows. Building at the frontier of AI + Web.',
     active: true,
   },
 ];

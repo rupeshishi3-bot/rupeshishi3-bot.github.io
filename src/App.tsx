@@ -5,12 +5,10 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { AiIdentity } from './components/AiIdentity';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
+import { ProjectsSection } from './components/ProjectsSection';
 import { TechStack } from './components/TechStack';
-import { Services } from './components/Services';
+import { Skills } from './components/Skills';
 import { Timeline } from './components/Timeline';
-import { Testimonials } from './components/Testimonials';
 import { Vision } from './components/Vision';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -23,7 +21,7 @@ export const App: React.FC = () => {
   const [easterEggOpen, setEasterEggOpen] = useState(false);
 
   useEffect(() => {
-    // Console art from original script
+    // Console log badge
     console.log(
       `%c
 ██████╗ ██╗   ██╗██████╗ ███████╗███████╗██╗  ██╗
@@ -33,18 +31,14 @@ export const App: React.FC = () => {
 ██║  ██║╚██████╔╝██║     ███████╗███████║██║  ██║
 ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝
 
-  RUPESH ISHI — AI Web Developer & Digital Architect
-  You found the console! You're clearly extraordinary.
+  RUPESH ISHI — AI-Assisted Website Builder & Digital Product Creator
+  GitHub: https://github.com/rupeshishi3-bot
+  Portfolio: https://rupeshishi3-bot.github.io/
   
-  Try: Konami Code ↑↑↓↓←→←→BA for a surprise.
-  Or: Press Ctrl+K to open the command palette.
+  Try: Konami Code ↑↑↓↓←→←→BA for a secret overlay.
+  Or: Press Ctrl+K / Cmd+K to launch the command palette.
 `,
       'color: #a855f7; font-family: monospace; font-size: 11px;'
-    );
-
-    console.log(
-      '%cBuilt with obsession. Designed with purpose.',
-      'color: #3b82f6; font-size: 12px; font-weight: bold;'
     );
 
     // Global keyboard listener for Ctrl+K / Cmd+K
@@ -69,12 +63,10 @@ export const App: React.FC = () => {
         <Hero />
         <About />
         <AiIdentity />
-        <Skills />
-        <Projects />
+        <ProjectsSection />
         <TechStack />
-        <Services />
+        <Skills />
         <Timeline />
-        <Testimonials />
         <Vision />
         <Contact />
       </main>

@@ -49,8 +49,8 @@ export const Vision: React.FC = () => {
             <span> Personal.</span>
           </h2>
           <p className="vision-sub">
-            I'm not waiting for that future. I'm building it, one product, one interface, one
-            experience at a time. Join me at the frontier.
+            I'm not waiting for that future to happen by chance. I'm building it through active digital
+            products, one interface, one algorithm, one experience at a time.
           </p>
           <div className="vision-cta">
             <a href="#contact" onClick={scrollToContact} className="btn-primary large">

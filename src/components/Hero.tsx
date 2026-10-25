@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Sparkles, Zap, Layers } from 'lucide-react';
+import { ArrowRight, Download, Mail } from 'lucide-react';
 
 const typedPhrases = [
-  'AI Web Developer & Digital Architect',
-  'Building Intelligent Web Experiences',
-  'Crafting the Future, One Pixel at a Time',
-  'Merging AI with Human-Centered Design',
-  'SaaS Builder & Prompt Engineer',
+  'AI-Assisted Website Builder & Digital Product Creator',
+  '10 Functional Digital Products & Cloud Architectures',
+  'Rapid Prototyping, Clean Code & Relentless Iteration',
+  'Transforming Visionary Concepts into Working Web Software',
 ];
 
 export const Hero: React.FC = () => {
@@ -18,7 +17,6 @@ export const Hero: React.FC = () => {
 
   // Counter states
   const [projectsCount, setProjectsCount] = useState(0);
-  const [aiToolsCount, setAiToolsCount] = useState(0);
   const [passionCount, setPassionCount] = useState(0);
 
   // Typing animation
@@ -31,22 +29,22 @@ export const Hero: React.FC = () => {
         timeout = setTimeout(() => {
           setTypedText(currentPhrase.substring(0, charIdx + 1));
           setCharIdx((prev) => prev + 1);
-        }, 70);
+        }, 55);
       } else {
         timeout = setTimeout(() => {
           setIsDeleting(true);
-        }, 2000);
+        }, 2200);
       }
     } else {
       if (charIdx > 0) {
         timeout = setTimeout(() => {
           setTypedText(currentPhrase.substring(0, charIdx - 1));
           setCharIdx((prev) => prev - 1);
-        }, 40);
+        }, 30);
       } else {
         setIsDeleting(false);
         setPhraseIdx((prev) => (prev + 1) % typedPhrases.length);
-        timeout = setTimeout(() => {}, 400);
+        timeout = setTimeout(() => {}, 350);
       }
     }
 
@@ -55,7 +53,7 @@ export const Hero: React.FC = () => {
 
   // Counters animation
   useEffect(() => {
-    const duration = 2000;
+    const duration = 1800;
     const intervalTime = 16;
     const steps = duration / intervalTime;
 
@@ -63,17 +61,14 @@ export const Hero: React.FC = () => {
     const timer = setInterval(() => {
       step++;
       const progress = Math.min(1, step / steps);
-      // easeOutQuad
       const eased = 1 - (1 - progress) * (1 - progress);
 
-      setProjectsCount(Math.floor(eased * 30));
-      setAiToolsCount(Math.floor(eased * 15));
+      setProjectsCount(Math.floor(eased * 10));
       setPassionCount(Math.floor(eased * 100));
 
       if (progress >= 1) {
         clearInterval(timer);
-        setProjectsCount(30);
-        setAiToolsCount(15);
+        setProjectsCount(10);
         setPassionCount(100);
       }
     }, intervalTime);
@@ -81,7 +76,7 @@ export const Hero: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Canvas particle system
+  // Full original particle canvas system
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -155,7 +150,7 @@ export const Hero: React.FC = () => {
     }
 
     const particles: Particle[] = [];
-    const count = Math.min(120, Math.floor((width * height) / 10000));
+    const count = Math.min(120, Math.floor((width * height) / 9000));
     for (let i = 0; i < count; i++) {
       particles.push(new Particle());
     }
@@ -166,13 +161,13 @@ export const Hero: React.FC = () => {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
+          if (dist < 110) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = '#3b82f6';
-            ctx.globalAlpha = (1 - dist / 100) * 0.08;
-            ctx.lineWidth = 0.5;
+            ctx.globalAlpha = (1 - dist / 110) * 0.09;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
             ctx.globalAlpha = 1;
           }
@@ -190,10 +185,10 @@ export const Hero: React.FC = () => {
         0,
         width / 2,
         height / 2,
-        width * 0.8
+        width * 0.85
       );
-      gradient.addColorStop(0, 'rgba(59,130,246,0.03)');
-      gradient.addColorStop(0.5, 'rgba(168,85,247,0.02)');
+      gradient.addColorStop(0, 'rgba(59,130,246,0.04)');
+      gradient.addColorStop(0.5, 'rgba(168,85,247,0.025)');
       gradient.addColorStop(1, 'transparent');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
@@ -202,9 +197,9 @@ export const Hero: React.FC = () => {
         const dx = mx - p.x;
         const dy = my - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) {
-          p.x += dx * 0.002;
-          p.y += dy * 0.002;
+        if (dist < 160) {
+          p.x += dx * 0.0025;
+          p.y += dy * 0.0025;
         }
         p.update();
         p.draw();
@@ -223,15 +218,15 @@ export const Hero: React.FC = () => {
     };
   }, []);
 
-  const handleMagneticMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMagneticMove = (e: React.MouseEvent<HTMLElement>) => {
     const btn = e.currentTarget;
     const rect = btn.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22}px)`;
   };
 
-  const handleMagneticLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMagneticLeave = (e: React.MouseEvent<HTMLElement>) => {
     e.currentTarget.style.transform = '';
   };
 
@@ -248,7 +243,7 @@ export const Hero: React.FC = () => {
       <div className="hero-content">
         <div className="hero-badge">
           <span className="badge-dot"></span>
-          Available for Projects
+          Available for Selected Projects &amp; Roles
         </div>
 
         <h1 className="hero-title">
@@ -259,12 +254,12 @@ export const Hero: React.FC = () => {
           </span>
           <span className="line-wrap">
             <span className="hero-line gradient-text" data-delay="150">
-              AI Web
+              AI-Assisted
             </span>
           </span>
           <span className="line-wrap">
             <span className="hero-line" data-delay="300">
-              Developer
+              Product Creator
             </span>
           </span>
         </h1>
@@ -274,34 +269,44 @@ export const Hero: React.FC = () => {
           <span className="cursor-blink">|</span>
         </p>
 
+        {/* 3 Prominent Verified Buttons */}
         <div className="hero-actions">
-          <a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo('#projects');
-            }}
-            className="btn-primary magnetic flex items-center gap-2"
+          <button
+            type="button"
+            onClick={() => scrollTo('#projects')}
+            className="btn-primary magnetic"
             onMouseMove={handleMagneticMove}
             onMouseLeave={handleMagneticLeave}
           >
-            <span>Explore Work</span>
+            <span>Explore 10 Projects</span>
             <ArrowRight size={16} />
-          </a>
+          </button>
+
           <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo('#contact');
-            }}
+            href="/resume.pdf"
+            download="Rupesh-Ishi-Resume.pdf"
             className="btn-secondary magnetic"
             onMouseMove={handleMagneticMove}
             onMouseLeave={handleMagneticLeave}
+            title="Download authentic resume PDF"
           >
-            <span>Let's Talk</span>
+            <Download size={16} />
+            <span>Download Resume</span>
           </a>
+
+          <button
+            type="button"
+            onClick={() => scrollTo('#contact')}
+            className="btn-ghost magnetic"
+            onMouseMove={handleMagneticMove}
+            onMouseLeave={handleMagneticLeave}
+          >
+            <Mail size={16} />
+            <span>Contact Me</span>
+          </button>
         </div>
 
+        {/* Real Stats */}
         <div className="hero-stats">
           <div className="stat-item">
             <div>
@@ -315,10 +320,10 @@ export const Hero: React.FC = () => {
 
           <div className="stat-item">
             <div>
-              <span className="stat-number">{aiToolsCount}</span>
-              <span className="stat-plus">+</span>
+              <span className="stat-number">100</span>
+              <span className="stat-plus">%</span>
             </div>
-            <span className="stat-label">AI Tools Created</span>
+            <span className="stat-label">Transparent Status</span>
           </div>
 
           <div className="stat-divider"></div>
@@ -328,23 +333,23 @@ export const Hero: React.FC = () => {
               <span className="stat-number">{passionCount}</span>
               <span className="stat-plus">%</span>
             </div>
-            <span className="stat-label">Passion Driven</span>
+            <span className="stat-label">Iterative Engineering</span>
           </div>
         </div>
       </div>
 
       <div className="hero-floating-cards">
-        <div className="float-card card-1 flex items-center gap-2">
-          <Sparkles className="fc-icon text-purple-400" size={18} />
+        <div className="float-card card-1">
+          <div className="fc-icon">⚡</div>
           <div className="fc-text">AI Integration</div>
         </div>
-        <div className="float-card card-2 flex items-center gap-2">
-          <Zap className="fc-icon text-yellow-400" size={18} />
-          <div className="fc-text">Lightning Fast</div>
+        <div className="float-card card-2">
+          <div className="fc-icon">🚀</div>
+          <div className="fc-text">Fast Iteration</div>
         </div>
-        <div className="float-card card-3 flex items-center gap-2">
-          <Layers className="fc-icon text-cyan-400" size={18} />
-          <div className="fc-text">Web3 Ready</div>
+        <div className="float-card card-3">
+          <div className="fc-icon">🌐</div>
+          <div className="fc-text">Edge &amp; Cloud</div>
         </div>
       </div>
 

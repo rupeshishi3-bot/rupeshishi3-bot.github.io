@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Rocket, Layout, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 export const About: React.FC = () => {
   const scrollToContact = (e: React.MouseEvent) => {
@@ -17,27 +17,28 @@ export const About: React.FC = () => {
             <h2 className="section-title">
               Not Just a Developer.
               <br />
-              <span className="gradient-text">A Digital Architect.</span>
+              <span className="gradient-text">A Digital Product Creator.</span>
             </h2>
             <p className="about-bio">
-              I'm <strong>Rupesh Bhagwan Ishi</strong> — an AI Web Developer who builds at the
-              intersection of artificial intelligence, design systems, and human experience. I
-              don't just write code; I architect intelligent digital ecosystems that think, adapt,
-              and inspire.
+              I'm <strong>Rupesh Bhagwan Ishi</strong> — an AI-Assisted Website Builder and Digital
+              Product Creator. I build at the intersection of modern frontend architectures,
+              artificial intelligence workflows, and human-centered design. Rather than relying on
+              slow manual boilerplate or ungrounded AI generation, I engineer working software with
+              speed, precision, and purpose.
             </p>
             <p className="about-bio">
-              My work exists at a rare crossroads: where cinematic design meets machine
-              intelligence. Every pixel I place carries intention. Every line of code I write
-              carries purpose. I believe the next decade of the web will be defined by AI-native
-              experiences — and I'm here to build them.
+              My work centers on <strong>building digital products, AI-assisted workflows,
+              experimentation, and iterative improvement</strong>. I believe the future of software
+              belongs to builders who orchestrate intelligent tools to deliver complete,
+              responsive, and robust web applications.
             </p>
 
             <div className="about-tags">
-              <span className="tag">AI-First Thinking</span>
-              <span className="tag">Systems Design</span>
-              <span className="tag">Product Vision</span>
-              <span className="tag">UI Architect</span>
-              <span className="tag">Builder</span>
+              <span className="tag">AI-Assisted Workflows</span>
+              <span className="tag">Digital Product Builder</span>
+              <span className="tag">Systems Architecture</span>
+              <span className="tag">Edge &amp; Cloud Services</span>
+              <span className="tag">Iterative Engineering</span>
             </div>
 
             <div className="about-links">
@@ -47,10 +48,11 @@ export const About: React.FC = () => {
               <a
                 href="/resume.pdf"
                 download="Rupesh-Ishi-Resume.pdf"
-                className="resume-btn flex items-center gap-2"
+                className="resume-btn"
                 id="resume-btn"
+                title="Download authentic resume PDF"
               >
-                <Download size={16} />
+                <Download size={15} style={{ display: 'inline', marginRight: '6px' }} />
                 Download Resume
               </a>
             </div>
@@ -67,38 +69,32 @@ export const About: React.FC = () => {
                 </div>
                 <div className="avatar-status">
                   <span className="status-dot"></span>
-                  Open to work
+                  Open to Work &amp; Collaborations
                 </div>
               </div>
 
               <div className="about-info-cards">
                 <div className="info-card">
-                  <div className="info-icon text-blue-400">
-                    <Bot size={22} />
-                  </div>
+                  <div className="info-icon">🤖</div>
                   <div>
-                    <div className="info-title">AI Developer</div>
-                    <div className="info-sub">Machine Intelligence</div>
+                    <div className="info-title">AI-Assisted Workflows</div>
+                    <div className="info-sub">Prompt Architecture &amp; Tooling</div>
                   </div>
                 </div>
 
                 <div className="info-card">
-                  <div className="info-icon text-purple-400">
-                    <Rocket size={22} />
-                  </div>
+                  <div className="info-icon">🚀</div>
                   <div>
-                    <div className="info-title">Product Builder</div>
-                    <div className="info-sub">SaaS & Platforms</div>
+                    <div className="info-title">Digital Product Builder</div>
+                    <div className="info-sub">SaaS Platforms &amp; Web Utilities</div>
                   </div>
                 </div>
 
                 <div className="info-card">
-                  <div className="info-icon text-cyan-400">
-                    <Layout size={22} />
-                  </div>
+                  <div className="info-icon">✨</div>
                   <div>
                     <div className="info-title">UI Architect</div>
-                    <div className="info-sub">Premium Experiences</div>
+                    <div className="info-sub">Cinematic &amp; Accessible Interfaces</div>
                   </div>
                 </div>
               </div>

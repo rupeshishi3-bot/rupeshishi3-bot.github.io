@@ -19,46 +19,49 @@ export const TechStack: React.FC = () => {
           </div>
           <div className="tech-rings">
             <div className="tech-ring ring-1">
-              <div className="tech-node" style={{ '--a': '0deg' } as React.CSSProperties}>HTML5</div>
-              <div className="tech-node" style={{ '--a': '72deg' } as React.CSSProperties}>CSS3</div>
-              <div className="tech-node" style={{ '--a': '144deg' } as React.CSSProperties}>JS</div>
+              <div className="tech-node" style={{ '--a': '0deg' } as React.CSSProperties}>React 18</div>
+              <div className="tech-node" style={{ '--a': '72deg' } as React.CSSProperties}>TypeScript</div>
+              <div className="tech-node" style={{ '--a': '144deg' } as React.CSSProperties}>Three.js</div>
               <div className="tech-node" style={{ '--a': '216deg' } as React.CSSProperties}>Git</div>
-              <div className="tech-node" style={{ '--a': '288deg' } as React.CSSProperties}>PWA</div>
+              <div className="tech-node" style={{ '--a': '288deg' } as React.CSSProperties}>Tailwind</div>
             </div>
             <div className="tech-ring ring-2">
-              <div className="tech-node" style={{ '--a': '36deg' } as React.CSSProperties}>Firebase</div>
-              <div className="tech-node" style={{ '--a': '108deg' } as React.CSSProperties}>AI APIs</div>
-              <div className="tech-node" style={{ '--a': '180deg' } as React.CSSProperties}>GSAP</div>
-              <div className="tech-node" style={{ '--a': '252deg' } as React.CSSProperties}>Figma</div>
-              <div className="tech-node" style={{ '--a': '324deg' } as React.CSSProperties}>SEO</div>
+              <div className="tech-node" style={{ '--a': '36deg' } as React.CSSProperties}>Cloudflare</div>
+              <div className="tech-node" style={{ '--a': '108deg' } as React.CSSProperties}>Firebase</div>
+              <div className="tech-node" style={{ '--a': '180deg' } as React.CSSProperties}>AI APIs</div>
+              <div className="tech-node" style={{ '--a': '252deg' } as React.CSSProperties}>Vite</div>
+              <div className="tech-node" style={{ '--a': '324deg' } as React.CSSProperties}>Cloud Run</div>
             </div>
           </div>
         </div>
 
         <div className="tech-list reveal visible">
           <div className="tech-item">
-            <span className="tech-color" style={{ background: '#E44D26' }}></span>HTML5
+            <span className="tech-color" style={{ background: '#61DAFB' }}></span>React 18
           </div>
           <div className="tech-item">
-            <span className="tech-color" style={{ background: '#1572B6' }}></span>CSS3
+            <span className="tech-color" style={{ background: '#3178C6' }}></span>TypeScript
           </div>
           <div className="tech-item">
             <span className="tech-color" style={{ background: '#F7DF1E' }}></span>JavaScript
           </div>
           <div className="tech-item">
+            <span className="tech-color" style={{ background: '#000000' }}></span>Three.js / WebGL
+          </div>
+          <div className="tech-item">
+            <span className="tech-color" style={{ background: '#F38020' }}></span>Cloudflare Workers
+          </div>
+          <div className="tech-item">
             <span className="tech-color" style={{ background: '#FF9900' }}></span>Firebase
           </div>
           <div className="tech-item">
-            <span className="tech-color" style={{ background: '#88EC79' }}></span>GSAP
+            <span className="tech-color" style={{ background: '#A855F7' }}></span>AI Prompt Engineering
           </div>
           <div className="tech-item">
-            <span className="tech-color" style={{ background: '#A855F7' }}></span>AI APIs
+            <span className="tech-color" style={{ background: '#38BDF8' }}></span>Tailwind CSS
           </div>
           <div className="tech-item">
-            <span className="tech-color" style={{ background: '#F24E1E' }}></span>Figma
-          </div>
-          <div className="tech-item">
-            <span className="tech-color" style={{ background: '#cbd5e1' }}></span>GitHub
+            <span className="tech-color" style={{ background: '#cbd5e1' }}></span>GitHub Actions
           </div>
         </div>
       </div>

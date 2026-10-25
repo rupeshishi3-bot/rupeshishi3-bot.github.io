@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Search,
+  Sparkles,
+  FolderGit2,
+  Layers,
   User,
   Cpu,
-  FolderGit2,
-  Briefcase,
-  Clock,
   Mail,
   Download,
   ArrowUp,
-  Sparkles,
+  ExternalLink,
 } from 'lucide-react';
 
 interface CommandPaletteProps {
@@ -53,16 +53,69 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     onClose();
   };
 
+  const openGitHub = () => {
+    window.open('https://github.com/rupeshishi3-bot', '_blank', 'noopener,noreferrer');
+    onClose();
+  };
+
   const commandItems: CommandItem[] = [
-    { icon: <User size={16} />, name: 'About Me', desc: 'Section', action: () => scrollTo('#about') },
-    { icon: <Cpu size={16} />, name: 'Skills', desc: 'Section', action: () => scrollTo('#skills') },
-    { icon: <FolderGit2 size={16} />, name: 'Projects', desc: 'Section', action: () => scrollTo('#projects') },
-    { icon: <Briefcase size={16} />, name: 'Services', desc: 'Section', action: () => scrollTo('#services') },
-    { icon: <Clock size={16} />, name: 'Timeline', desc: 'Journey', action: () => scrollTo('#timeline') },
-    { icon: <Mail size={16} />, name: 'Contact', desc: 'Get in touch', action: () => scrollTo('#contact') },
-    { icon: <Download size={16} />, name: 'Download Resume', desc: 'PDF', action: downloadResume },
-    { icon: <ArrowUp size={16} />, name: 'Back to Top', desc: 'Navigate', action: scrollToTop },
-    { icon: <Sparkles size={16} />, name: 'Easter Egg', desc: 'Secret', action: () => { onClose(); onOpenEasterEgg(); } },
+    {
+      icon: <Sparkles size={16} />,
+      name: 'Featured Projects',
+      desc: 'Top 5 curated apps',
+      action: () => scrollTo('#featured-projects'),
+    },
+    {
+      icon: <Layers size={16} />,
+      name: 'All 10 Projects',
+      desc: 'Complete project directory',
+      action: () => scrollTo('#all-projects'),
+    },
+    {
+      icon: <User size={16} />,
+      name: 'About & Philosophy',
+      desc: 'AI-assisted builder approach',
+      action: () => scrollTo('#about'),
+    },
+    {
+      icon: <Cpu size={16} />,
+      name: 'Verified Capabilities',
+      desc: 'Skills & technical matrix',
+      action: () => scrollTo('#skills'),
+    },
+    {
+      icon: <Mail size={16} />,
+      name: 'Contact Me',
+      desc: 'Direct email & inquiry form',
+      action: () => scrollTo('#contact'),
+    },
+    {
+      icon: <Download size={16} />,
+      name: 'Download Resume PDF',
+      desc: 'Verified resume.pdf file',
+      action: downloadResume,
+    },
+    {
+      icon: <ExternalLink size={16} />,
+      name: 'GitHub Profile',
+      desc: 'rupeshishi3-bot repositories',
+      action: openGitHub,
+    },
+    {
+      icon: <ArrowUp size={16} />,
+      name: 'Back to Top',
+      desc: 'Scroll to hero view',
+      action: scrollToTop,
+    },
+    {
+      icon: <Sparkles size={16} className="text-purple-400" />,
+      name: 'Easter Egg Secret',
+      desc: 'Konami code vault',
+      action: () => {
+        onClose();
+        onOpenEasterEgg();
+      },
+    },
   ];
 
   const filtered = commandItems.filter(
@@ -84,9 +137,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         if (isOpen) onClose();
-        else {
-          // Open handled by parent or shortcut
-        }
       } else if (e.key === 'Escape' && isOpen) {
         onClose();
       } else if (isOpen) {
@@ -123,11 +173,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     >
       <div id="command-palette">
         <div className="cmd-header">
-          <Search size={18} className="cmd-icon" />
+          <Search size={18} className="cmd-icon text-slate-400" />
           <input
             ref={inputRef}
             id="cmd-input"
-            placeholder="Type a command or navigate..."
+            placeholder="Type a section name or action..."
             autoComplete="off"
             value={query}
             onChange={(e) => {
@@ -142,7 +192,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
         <div className="cmd-results" id="cmd-results">
           {filtered.length === 0 ? (
-            <div className="p-4 text-center text-sm text-slate-500">No commands found</div>
+            <div className="p-6 text-center text-xs font-mono text-slate-500">
+              No matching section or action found.
+            </div>
           ) : (
             filtered.map((item, idx) => (
               <div

@@ -312,11 +312,35 @@ function setupStaggeredReveal() {
 }
 setupStaggeredReveal();
 
+// ---- PROJECT CATEGORY FILTERING ----
+function filterProjects(category, buttonEl) {
+  const cards = document.querySelectorAll('.project-card');
+  const buttons = document.querySelectorAll('.filter-btn');
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  if (buttonEl) buttonEl.classList.add('active');
+
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category');
+    if (category === 'all' || cardCat === category) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+window.filterProjects = filterProjects;
+
 // ---- COMMAND PALETTE ----
 const commandItems = [
   { icon: '👤', name: 'About Me', desc: 'Section', action: () => scrollTo('#about') },
   { icon: '⚡', name: 'Skills', desc: 'Section', action: () => scrollTo('#skills') },
-  { icon: '🚀', name: 'Projects', desc: 'Section', action: () => scrollTo('#projects') },
+  { icon: '🚀', name: 'Projects', desc: 'Section (10 Projects)', action: () => scrollTo('#projects') },
+  { icon: '📄', name: 'PrintWise', desc: 'PDF Tools & Print Layout', action: () => { scrollTo('#projects'); window.open('https://printwise.ai.studio/', '_blank'); } },
+  { icon: '⛅', name: 'ATMOS', desc: 'Atmospheric Weather Telemetry', action: () => { scrollTo('#projects'); window.open('https://rupeshishi3-bot.github.io/Atmos.in/', '_blank'); } },
+  { icon: '🔍', name: 'ATS X-Ray', desc: 'Resume Parser Diagnostic', action: () => { scrollTo('#projects'); window.open('https://ats-x-ray-transparent-resume-parser.ai.studio/', '_blank'); } },
+  { icon: '📋', name: 'DocReady', desc: 'Document Compliance Checklist', action: () => { scrollTo('#projects'); window.open('https://docready.ai.studio/#purpose-section', '_blank'); } },
+  { icon: '🤖', name: 'NEXUS', desc: 'AI Tools & Productivity Portal', action: () => { scrollTo('#projects'); window.open('https://rupeshishi3-bot.github.io/nexus.ai/', '_blank'); } },
   { icon: '💼', name: 'Services', desc: 'Section', action: () => scrollTo('#services') },
   { icon: '⏳', name: 'Timeline', desc: 'Journey', action: () => scrollTo('#timeline') },
   { icon: '✉️', name: 'Contact', desc: 'Get in touch', action: () => scrollTo('#contact') },

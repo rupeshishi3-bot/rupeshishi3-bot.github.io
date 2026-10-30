@@ -393,94 +393,391 @@
       <div class="section-label">✦ Featured Work</div>
       <h2 class="section-title">Projects That<br><span class="gradient-text">Define Tomorrow</span></h2>
     </div>
+
+    <!-- Category Filter Controls -->
+    <div class="project-filters reveal">
+      <button class="filter-btn active" type="button" data-filter="all" onclick="filterProjects('all', this)">All (10)</button>
+      <button class="filter-btn" type="button" data-filter="ai-productivity" onclick="filterProjects('ai-productivity', this)">AI &amp; Productivity (2)</button>
+      <button class="filter-btn" type="button" data-filter="dev-tools" onclick="filterProjects('dev-tools', this)">Developer Tools (2)</button>
+      <button class="filter-btn" type="button" data-filter="education" onclick="filterProjects('education', this)">Education (1)</button>
+      <button class="filter-btn" type="button" data-filter="documents" onclick="filterProjects('documents', this)">Documents (3)</button>
+      <button class="filter-btn" type="button" data-filter="information" onclick="filterProjects('information', this)">Information (2)</button>
+    </div>
+
     <div class="projects-grid">
 
-      <div class="project-card featured reveal">
+      <!-- PROJECT 01 (FEATURED) — PrintWise -->
+      <div class="project-card featured reveal" data-category="documents">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge">✦ Featured</div>
-          <div class="project-links">
+          <div class="project-header-left">
+            <span class="project-badge">✦ Documents / PDF</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">01</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">printwise.ai.studio</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">📄</span>
+            <span class="pv-title-sub">PDF &amp; Print Layout Engine</span>
           </div>
         </div>
-        <div class="project-num">01</div>
-        <h3 class="project-title">ToolVerse AI</h3>
-        <p class="project-desc">A multi-dimensional AI tools ecosystem — 50+ intelligent utilities living inside one premium platform. From text transformers to image AI and code generators, ToolVerse is the future of productivity software.</p>
+        <h3 class="project-title">PrintWise</h3>
+        <p class="project-desc">An online PDF utility and document intelligence platform designed to provide precision document-related tools in one place, optimizing document layouts and print-ready workflows.</p>
         <div class="project-tags">                              
-          <span>AI Integration</span>
-          <span>SaaS Platform</span>
-          <span>50+ Tools</span>
+          <span>TypeScript</span>
+          <span>Canvas API</span>
+          <span>PDF Engine</span>
+          <span>Productivity</span>
         </div>
         <div class="project-footer">
-          <div class="proj-stat">50+ Tools</div>
-          <div class="proj-stat">PWA Ready</div>
+          <a href="https://printwise.ai.studio/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <!-- PROJECT 02 (FEATURED) — ATMOS -->
+      <div class="project-card featured reveal" data-category="information">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge">✦ AI</div>
-          <div class="project-links">
-          </div>                                                 
+          <div class="project-header-left">
+            <span class="project-badge">✦ Weather / Information</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">02</span>
         </div>
-        <div class="project-num">02</div>                             
-        <h3 class="project-title">AI Tools Platform</h3>
-        <p class="project-desc">A curated intelligence marketplace for developers and creators. Discover, test, and integrate the world's most powerful AI APIs through a stunning unified interface.</p>
-        <div class="project-tags">
-          <span>API Gateway</span>
-          <span>AI Catalog</span>
-          <span>Developer Tool</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-glow"></div>
-        <div class="project-header">
-          <div class="project-badge">✦ Web</div>
-          <div class="project-links">
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">rupeshishi3-bot.github.io/Atmos.in</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">⛅</span>
+            <span class="pv-title-sub">Atmospheric Climate Telemetry</span>
           </div>
         </div>
-        <div class="project-num">03</div>
-        <h3 class="project-title">Futuristic Portfolio</h3>
-        <p class="project-desc">This very website — an engineering marvel built with pure HTML, CSS, and JS. A cinematic demonstration of what's possible when design and code merge at the highest level.</p>
-        <div class="project-tags">
-          <span>Cinematic UI</span>
-          <span>Animations</span>
-          <span>Performance</span>
+        <h3 class="project-title">ATMOS</h3>
+        <p class="project-desc">A minimalist atmospheric telemetry and real-time weather analytics application featuring dynamic meteorological visualization and responsive geo-climate forecasts.</p>
+        <div class="project-tags">                              
+          <span>JavaScript</span>
+          <span>OpenWeather API</span>
+          <span>CSS Animations</span>
+          <span>GeoLocation</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://rupeshishi3-bot.github.io/Atmos.in/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="project-links">
+            <a href="https://github.com/rupeshishi3-bot/Atmos.in" target="_blank" rel="noopener noreferrer" class="btn-source" title="GitHub Repository">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <!-- PROJECT 03 (FEATURED) — ATS X-Ray -->
+      <div class="project-card featured reveal" data-category="documents">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge">✦ SaaS</div>
-          <div class="project-links">
+          <div class="project-header-left">
+            <span class="project-badge">✦ Career / Resume</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">03</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">ats-x-ray.ai.studio</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">🔍</span>
+            <span class="pv-title-sub">Resume Parser &amp; ATS Diagnostics</span>
           </div>
         </div>
-        <div class="project-num">04</div>
-        <h3 class="project-title">Productivity System</h3>
-        <p class="project-desc">An offline-first AI-powered productivity engine. Task intelligence, focus modes, habit systems, and AI coaching — all running client-side with zero latency.</p>
-        <div class="project-tags">
-          <span>AI Coach</span>
-          <span>Offline-First</span>
+        <h3 class="project-title">ATS X-Ray</h3>
+        <p class="project-desc">A transparent resume analysis and ATS-oriented diagnostic tool designed to reveal parsing obstacles, table traps, and keyword coverage gaps before job applications.</p>
+        <div class="project-tags">                              
+          <span>TypeScript</span>
+          <span>Resume Parsing</span>
+          <span>NLP Heuristics</span>
+          <span>PDF Analysis</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://ats-x-ray-transparent-resume-parser.ai.studio/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 04 (FEATURED) — DocReady -->
+      <div class="project-card featured reveal" data-category="documents">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-header-left">
+            <span class="project-badge">✦ Documents / Productivity</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">04</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">docready.ai.studio</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">📋</span>
+            <span class="pv-title-sub">Checklist &amp; Compliance Engine</span>
+          </div>
+        </div>
+        <h3 class="project-title">DocReady</h3>
+        <p class="project-desc">A document-focused productivity application and compliance verification engine providing multi-criteria readiness checklists to ensure paperwork meets submission standards.</p>
+        <div class="project-tags">                              
+          <span>JavaScript</span>
+          <span>Checklist Engine</span>
+          <span>Validation Logic</span>
+          <span>PWA</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://docready.ai.studio/#purpose-section" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 05 (FEATURED) — NEXUS -->
+      <div class="project-card featured reveal" data-category="ai-productivity">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-header-left">
+            <span class="project-badge">✦ AI Tools / Productivity</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">05</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">rupeshishi3-bot.github.io/nexus.ai</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">🤖</span>
+            <span class="pv-title-sub">Curated AI Intelligence Hub</span>
+          </div>
+        </div>
+        <h3 class="project-title">NEXUS</h3>
+        <p class="project-desc">A curated collection of AI-powered utilities, generative assistants, and productivity tools designed to simplify everyday digital tasks through a centralized intelligence portal.</p>
+        <div class="project-tags">                              
+          <span>HTML5</span>
+          <span>CSS Grid</span>
+          <span>AI Gateway</span>
+          <span>JavaScript</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://rupeshishi3-bot.github.io/nexus.ai/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="project-links">
+            <a href="https://github.com/rupeshishi3-bot/nexus.ai" target="_blank" rel="noopener noreferrer" class="btn-source" title="GitHub Repository">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 06 — ProjectFlows -->
+      <div class="project-card reveal" data-category="ai-productivity">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-header-left">
+            <span class="project-badge">✦ Project Management</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">06</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">projectflows.ai.studio</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">📊</span>
+            <span class="pv-title-sub">Roadmap &amp; Milestone Graphs</span>
+          </div>
+        </div>
+        <h3 class="project-title">ProjectFlows</h3>
+        <p class="project-desc">A project and workflow-oriented digital tool designed to map roadmap milestones, task dependencies, and project sprints into clean visual graphs.</p>
+        <div class="project-tags">                              
+          <span>Workflow Graph</span>
+          <span>State Engine</span>
+          <span>SVG Rendering</span>
+          <span>Productivity</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://projectflows.ai.studio/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 07 — Typing Website -->
+      <div class="project-card reveal" data-category="education">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-header-left">
+            <span class="project-badge">✦ Education / Practice</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">07</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">rupeshishi3-bot.github.io/Typing</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">⌨️</span>
+            <span class="pv-title-sub">Keystroke WPM Analytics</span>
+          </div>
+        </div>
+        <h3 class="project-title">Typing Website</h3>
+        <p class="project-desc">An interactive typing practice and learning platform featuring live WPM calculation, keystroke accuracy analytics, and customizable duration exercises.</p>
+        <div class="project-tags">                              
+          <span>JavaScript</span>
+          <span>HTML5</span>
+          <span>Web Audio API</span>
           <span>LocalStorage</span>
         </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-glow"></div>
-        <div class="project-header">
-          <div class="project-badge">✦ Utility</div>
+        <div class="project-footer">
+          <a href="https://rupeshishi3-bot.github.io/Typing-Website-by-Rupesh-Ishi/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
           <div class="project-links">
+            <a href="https://github.com/rupeshishi3-bot/Typing-Website-by-Rupesh-Ishi" target="_blank" rel="noopener noreferrer" class="btn-source" title="GitHub Repository">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
           </div>
         </div>
-        <div class="project-num">05</div>
-        <h3 class="project-title">Multi-Tool Platform</h3>
-        <p class="project-desc">A Swiss army knife for the modern web — converters, generators, analyzers, and formatters in one lightning-fast platform. 30+ tools. Zero dependencies. Pure power.</p>
-        <div class="project-tags">
-          <span>30+ Utilities</span>
-          <span>Zero Backend</span>
-          <span>Instant</span>
+      </div>
+
+      <!-- PROJECT 08 — StackRadar -->
+      <div class="project-card reveal" data-category="dev-tools">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-header-left">
+            <span class="project-badge">✦ Developer Tools</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">08</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">stackradar.workers.dev</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">📡</span>
+            <span class="pv-title-sub">Edge Architecture Analyzer</span>
+          </div>
+        </div>
+        <h3 class="project-title">StackRadar</h3>
+        <p class="project-desc">A developer platform deployed on Cloudflare Workers edge network designed for discovering, exploring, and analyzing modern technology stacks and engineering tradeoffs.</p>
+        <div class="project-tags">                              
+          <span>Cloudflare Workers</span>
+          <span>Edge Runtime</span>
+          <span>TypeScript</span>
+          <span>Radar Tool</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://stackradar.rupeshishi3.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 09 — ProofStack -->
+      <div class="project-card reveal" data-category="dev-tools">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-header-left">
+            <span class="project-badge">✦ Verification / Proof</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">09</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">proofstack-gamma.vercel.app</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">🛡️</span>
+            <span class="pv-title-sub">Structured Verification Engine</span>
+          </div>
+        </div>
+        <h3 class="project-title">ProofStack</h3>
+        <p class="project-desc">A web application focused on structured proof and verification workflows, designed to collect and showcase authentic endorsements and verifiable credentials.</p>
+        <div class="project-tags">                              
+          <span>Next.js / Vercel</span>
+          <span>API Integration</span>
+          <span>Tailwind CSS</span>
+          <span>Verification</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://proofstack-gamma.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 10 — 60Sec News -->
+      <div class="project-card reveal" data-category="information">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-header-left">
+            <span class="project-badge">✦ News / Information</span>
+            <span class="proj-status"><span class="status-dot green"></span>Working</span>
+          </div>
+          <span class="project-num">10</span>
+        </div>
+        <div class="project-visual">
+          <div class="pv-topbar">
+            <div class="pv-dots"><span></span><span></span><span></span></div>
+            <span class="pv-domain">service-60sec-news.run.app</span>
+          </div>
+          <div class="pv-body">
+            <span class="pv-icon">⏱️</span>
+            <span class="pv-title-sub">Rapid News Briefing Microservice</span>
+          </div>
+        </div>
+        <h3 class="project-title">60Sec News</h3>
+        <p class="project-desc">A concise news-focused platform and microservice deployed on Google Cloud Run delivering 60-second digested news briefings and topic summaries.</p>
+        <div class="project-tags">                              
+          <span>Google Cloud Run</span>
+          <span>REST API</span>
+          <span>Summarization</span>
+          <span>Node.js</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://service-60sec-news-881179795897.asia-southeast1.run.app/" target="_blank" rel="noopener noreferrer" class="btn-demo">
+            <span>Live Demo</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
 

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rupesh Bhagwan Ishi | AI Web Developer &amp; Digital Architect</title>
+<meta name="description" content="Rupesh Bhagwan Ishi is an AI Web Developer building the future of intelligent, AI-powered digital experiences, modern websites, and next-gen design systems.">
+<meta name="keywords" content="Rupesh Bhagwan Ishi, AI Web Developer, AI Developer Portfolio, Frontend Web Developer, AI Integration Developer, UI Architect, Digital Architect, Rupesh Ishi">
+<meta property="og:title" content="Rupesh Bhagwan Ishi | AI Web Developer &amp; Digital Architect">
+<meta property="og:description" content="Rupesh Bhagwan Ishi is an AI Web Developer building the future of intelligent, AI-powered digital experiences, modern websites, and next-gen design systems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rupeshishi3-bot.github.io/">
+<meta property="og:site_name" content="Rupesh Bhagwan Ishi | AI Web Developer">
+<meta property="og:image" content="https://rupeshishi3-bot.github.io/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rupesh Bhagwan Ishi | AI Web Developer &amp; Digital Architect">
+<meta name="twitter:description" content="Rupesh Bhagwan Ishi is an AI Web Developer building the future of intelligent, AI-powered digital experiences, modern websites, and next-gen design systems.">
+<meta name="twitter:image" content="https://rupeshishi3-bot.github.io/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rupesh Bhagwan Ishi",
+  "jobTitle": "AI Web Developer",
+  "url": "https://rupeshishi3-bot.github.io/"
+}
+</script>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">RI</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-text">Initializing Experience<span class="dots">...</span></div>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div id="cursor-glow"></div>
+<div id="cursor-dot"></div>
+
+<!-- COMMAND PALETTE -->
+<div id="command-overlay">
+  <div id="command-palette">
+    <div class="cmd-header">
+      <span class="cmd-icon"></span>
+      <input id="cmd-input" placeholder="Type a command or navigate..." autocomplete="off" />
+      <span class="cmd-close" onclick="closeCommandPalette()">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmd-results"></div>
+    <div class="cmd-footer">
+      <span> navigate</span><span> select</span><span>esc close</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="logo-mark">RI</span>
+      <span class="logo-text">Rupesh Bhagwan Ishi</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="cmd-trigger" onclick="openCommandPalette()" title="Command Palette (Ctrl+K)">
+        <span>sections</span>
+      </button>
+      <a href="#contact" class="nav-cta">Hire Me</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" onclick="toggleMobileMenu()">About</a>
+    <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
+    <a href="#projects" onclick="toggleMobileMenu()">Projects</a>
+    <a href="#services" onclick="toggleMobileMenu()">Services</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Available for Projects
+    </div>
+    <h1 class="hero-title">
+      <span class="line-wrap"><span class="hero-line" data-delay="0">Rupesh Bhagwan Ishi</span></span>
+      <span class="line-wrap"><span class="hero-line gradient-text" data-delay="150">AI Web</span></span>
+      <span class="line-wrap"><span class="hero-line" data-delay="300">Developer</span></span>
+    </h1>
+    <p class="hero-subtitle">
+      <span id="typed-text"></span><span class="cursor-blink">|</span>
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary magnetic">
+        <span>Explore Work</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#contact" class="btn-secondary magnetic">
+        <span>Let's Talk</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Projects Built</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">AI Tools Created</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+        <span class="stat-label">Passion Driven</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-floating-cards">
+    <div class="float-card card-1">
+      <div class="fc-icon"></div>
+      <div class="fc-text">AI Integration</div>
+    </div>
+    <div class="float-card card-2">
+      <div class="fc-icon"></div>
+      <div class="fc-text">Lightning Fast</div>
+    </div>
+    <div class="float-card card-3">
+      <div class="fc-icon"></div>
+      <div class="fc-text">Web3 Ready</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="section-container">
+    <div class="about-layout">
+      <div class="about-left reveal">
+        <div class="section-label"> About Me</div>
+        <h2 class="section-title">Not Just a Developer.<br><span class="gradient-text">A Digital Architect.</span></h2>
+        <p class="about-bio">
+          I'm <strong>Rupesh Bhagwan Ishi</strong>  an AI Web Developer who builds at the intersection of artificial intelligence, design systems, and human experience. I don't write code; I architect intelligent digital ecosystems that think, adapt, and inspire.
+        </p>
+        <p class="about-bio">
+          My work exists at a rare crossroads: where cinematic design meets machine intelligence. Every pixel I place carries intention. Every line of code I write carries purpose. I believe the next decade of the web will be defined by AI-native experiences  and I'm here to build them.
+        </p>
+        <div class="about-tags">
+          <span class="tag">AI-First Thinking</span>
+          <span class="tag">Systems Design</span>
+          <span class="tag">Product Vision</span>
+          <span class="tag">UI Architect</span>
+          <span class="tag">Builder</span>
+        </div>
+        <div class="about-links">
+          <a href="#contact" class="btn-primary">Start a Project</a>
+          <a href="resume.pdf"
+             download="Rupesh-Ishi-Resume.pdf"
+             id="resume-btn"
+             class="resume-btn">
+             Download Resume
+        </a>
+        </div>
+      </div>
+      <div class="about-right reveal">
+        <div class="about-card-wrapper">
+          <div class="about-avatar-card">
+            <div class="avatar-glow"></div>
+            <div class="avatar-ring">
+              <div class="avatar-inner">
+                <div class="avatar-initials">RI</div>
+              </div>
+            </div>
+            <div class="avatar-status">
+              <span class="status-dot"></span>
+              Open to work
+            </div>
+          </div>
+          <div class="about-info-cards">
+            <div class="info-card">
+              <div class="info-icon"></div>
+              <div>
+                <div class="info-title">AI Developer</div>
+                <div class="info-sub">Machine Intelligence</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"></div>
+              <div>
+                <div class="info-title">Product Builder</div>
+                <div class="info-sub">SaaS & Platforms</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"></div>
+              <div>
+                <div class="info-title">UI Architect</div>
+                <div class="info-sub">Premium Experiences</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI IDENTITY SECTION -->
+<section id="ai-identity">
+  <div class="section-container">
+    <div class="ai-identity-inner reveal">
+      <div class="ai-terminal">
+        <div class="terminal-header">
+          <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+          <span class="t-title">rupesh_ishi.ai  terminal</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="t-line"><span class="t-prompt">$</span> whoami</div>
+          <div class="t-line t-output">Rupesh Bhagwan Ishi  AI Web Developer &amp; Digital Architect</div>
+          <div class="t-line"><span class="t-prompt">$</span> cat vision.txt</div>
+          <div class="t-line t-output">"The web of 2030 will be alive, intelligent, and personalized.</div>
+          <div class="t-line t-output"> I am building that web today."</div>
+          <div class="t-line"><span class="t-prompt">$</span> ls skills/</div>
+          <div class="t-line t-output">AI_Engineering/ Frontend/ Design_Systems/ SaaS_Products/ PWA/</div>
+          <div class="t-line"><span class="t-prompt"></span> <span class="t-cursor"></span></div>
+        </div>
+      </div>
+      <div class="ai-manifesto">
+        <div class="section-label"> Philosophy</div>
+        <h2 class="section-title">AI is not a tool.<br><span class="gradient-text">It's a language.</span></h2>
+        <p class="manifesto-text">I speak this language fluently. From prompt engineering architectures to AI-integrated web systems, I translate machine intelligence into human delight. My approach is simple: build products that make people feel like the future arrived early.</p>
+        <div class="manifesto-pillars">
+          <div class="pillar">
+            <div class="pillar-num"></div>
+            <div class="pillar-text">AI-Native Architecture</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num"></div>
+            <div class="pillar-text">Cinematic UI Systems</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num"></div>
+            <div class="pillar-text">Product Thinking</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num"></div>
+            <div class="pillar-text">Infinite Iteration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-label"> Skills Matrix</div>
+      <h2 class="section-title">Capabilities &amp;<br><span class="gradient-text">Expertise</span></h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card" data-level="95">
+        <div class="skill-icon"></div>
+        <div class="skill-name">HTML5</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:95%"></div></div>
+        <div class="skill-pct">95%</div>
+      </div>
+      <div class="skill-card" data-level="92">
+        <div class="skill-icon"></div>
+        <div class="skill-name">CSS3 / SCSS</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:92%"></div></div>
+        <div class="skill-pct">92%</div>
+      </div>
+      <div class="skill-card" data-level="88">
+        <div class="skill-icon"></div>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
+        <div class="skill-pct">88%</div>
+      </div>
+      <div class="skill-card" data-level="90">
+        <div class="skill-icon"></div>
+        <div class="skill-name">Responsive Design</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-card" data-level="85">
+        <div class="skill-icon"></div>
+        <div class="skill-name">UI/UX Design</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+        <div class="skill-pct">85%</div>
+      </div>
+      <div class="skill-card" data-level="93">
+        <div class="skill-icon"></div>
+        <div class="skill-name">AI Prompt Engineering</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:93%"></div></div>
+        <div class="skill-pct">93%</div>
+      </div>
+      <div class="skill-card" data-level="87">
+        <div class="skill-icon"></div>
+        <div class="skill-name">Frontend Architecture</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:87%"></div></div>
+        <div class="skill-pct">87%</div>
+      </div>
+      <div class="skill-card" data-level="80">
+        <div class="skill-icon"></div>
+        <div class="skill-name">Firebase</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+        <div class="skill-pct">80%</div>
+      </div>
+      <div class="skill-card" data-level="90">
+        <div class="skill-icon"></div>
+        <div class="skill-name">GitHub</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-card" data-level="82">
+        <div class="skill-icon"></div>
+        <div class="skill-name">SEO &amp; Performance</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div>
+        <div class="skill-pct">82%</div>
+      </div>
+      <div class="skill-card" data-level="88">
+        <div class="skill-icon"></div>
+        <div class="skill-name">SaaS UI Systems</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
+        <div class="skill-pct">88%</div>
+      </div>
+      <div class="skill-card" data-level="85">
+        <div class="skill-icon"></div>
+        <div class="skill-name">PWA Development</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+        <div class="skill-pct">85%</div>
+      </div>
+      <div class="skill-card" data-level="91">
+        <div class="skill-icon"></div>
+        <div class="skill-name">AI Workflow Design</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:91%"></div></div>
+        <div class="skill-pct">91%</div>
+      </div>
+      <div class="skill-card" data-level="84">
+        <div class="skill-icon"></div>
+        <div class="skill-name">Web Performance</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:84%"></div></div>
+        <div class="skill-pct">84%</div>
+      </div>
+      <div class="skill-card" data-level="86">
+        <div class="skill-icon"></div>
+        <div class="skill-name">LocalStorage Systems</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:86%"></div></div>
+        <div class="skill-pct">86%</div>
+      </div>
+      <div class="skill-card" data-level="89">
+        <div class="skill-icon"></div>
+        <div class="skill-name">Productivity Systems</div>
+        <div class="skill-bar"><div class="skill-fill" style="--w:89%"></div></div>
+        <div class="skill-pct">89%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-label"> Featured Work</div>
+      <h2 class="section-title">Projects That<br><span class="gradient-text">Define Tomorrow</span></h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card featured reveal">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-badge"> Featured</div>
+          <div class="project-links">
+          </div>
+        </div>
+        <div class="project-num"></div>
+        <h3 class="project-title">ToolVerse AI</h3>
+        <p class="project-desc">A multi-dimensional AI tools ecosystem  50+ intelligent utilities living inside one premium platform. From text transformers to image AI and code generators, ToolVerse is the future of productivity software.</p>
+        <div class="project-tags">                              
+          <span>AI Integration</span>
+          <span>SaaS Platform</span>
+          <span>50+ Tools</span>
+        </div>
+        <div class="project-footer">
+          <div class="proj-stat">50+ Tools</div>
+          <div class="proj-stat">PWA Ready</div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-badge"> AI</div>
+          <div class="project-links">
+          </div>                                                 
+        </div>
+        <div class="project-num"></div>                             
+        <h3 class="project-title">AI Tools Platform</h3>
+        <p class="project-desc">A curated intelligence marketplace for developers and creators. Discover, test, and integrate the world's most powerful AI APIs through a stunning unified interface.</p>
+        <div class="project-tags">
+          <span>API Gateway</span>
+          <span>AI Catalog</span>
+          <span>Developer Tool</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-badge"> Web</div>
+          <div class="project-links">
+          </div>
+        </div>
+        <div class="project-num"></div>
+        <h3 class="project-title">Futuristic Portfolio</h3>
+        <p class="project-desc">This very website  an engineering marvel built with pure HTML, CSS, and JS. A cinematic demonstration of what's possible when design and code merge at the highest level.</p>
+        <div class="project-tags">
+          <span>Cinematic UI</span>
+          <span>Animations</span>
+          <span>Performance</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-badge"> SaaS</div>
+          <div class="project-links">
+          </div>
+        </div>
+        <div class="project-num"></div>
+        <h3 class="project-title">Productivity System</h3>
+        <p class="project-desc">An offline-first AI-powered productivity engine. Task intelligence, focus modes, habit systems, and AI coaching  all running client-side with zero latency.</p>
+        <div class="project-tags">
+          <span>AI Coach</span>
+          <span>Offline-First</span>
+          <span>LocalStorage</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <div class="project-badge"> Utility</div>
+          <div class="project-links">
+          </div>
+        </div>
+        <div class="project-num"></div>
+        <h3 class="project-title">Multi-Tool Platform</h3>
+        <p class="project-desc">A Swiss army knife for the modern web  converters, generators, analyzers, and formatters in one lightning-fast platform. 30+ tools. Zero dependencies. Pure power.</p>
+        <div class="project-tags">
+          <span>30+ Utilities</span>
+          <span>Zero Backend</span>
+          <span>Instant</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="techstack">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-label"> Tech Stack</div>
+      <h2 class="section-title">The Arsenal I <span class="gradient-text">Command</span></h2>
+    </div>
+    <div class="tech-orbit reveal">
+      <div class="tech-center">
+        <div class="tech-core">
+          <span>STACK</span>
+        </div>
+      </div>
+      <div class="tech-rings">
+        <div class="tech-ring ring-1">
+          <div class="tech-node" style="--a:0deg">HTML5</div>
+          <div class="tech-node" style="--a:72deg">CSS3</div>
+          <div class="tech-node" style="--a:144deg">JS</div>
+          <div class="tech-node" style="--a:216deg">Git</div>
+          <div class="tech-node" style="--a:288deg">PWA</div>
+        </div>
+        <div class="tech-ring ring-2">
+          <div class="tech-node" style="--a:36deg">Firebase</div>
+          <div class="tech-node" style="--a:108deg">AI APIs</div>
+          <div class="tech-node" style="--a:180deg">GSAP</div>
+          <div class="tech-node" style="--a:252deg">Figma</div>
+          <div class="tech-node" style="--a:324deg">SEO</div>
+        </div>
+      </div>
+    </div>
+    <!-- Also a visual list for readability -->
+    <div class="tech-list reveal">
+      <div class="tech-item">
+        <span class="tech-color" style="background:#E44D26"></span>HTML5
+      </div>
+      <div class="tech-item">
+        <span class="tech-color" style="background:#1572B6"></span>CSS3
+      </div>
+      <div class="tech-item">
+        <span class="tech-color" style="background:#F7DF1E"></span>JavaScript
+      </div>
+      <div class="tech-item">
+        <span class="tech-color" style="background:#FF9900"></span>Firebase
+      </div>
+      <div class="tech-item">
+        <span class="tech-color" style="background:#88EC79"></span>GSAP
+      </div>
+      <div class="tech-item">
+        <span class="tech-color" style="background:#A855F7"></span>AI APIs
+      </div>
+      <div class="tech-item">
+        <span class="tech-color" style="background:#F24E1E"></span>Figma
+      </div>
+      <div class="tech-item">
+        <span class="tech-color" style="background:#181717"></span>GitHub
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-label"> Services</div>
+      <h2 class="section-title">What I Build<br><span class="gradient-text">for You</span></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="svc-num"></div>
+        <div class="svc-icon"></div>
+        <h3 class="svc-title">AI-Integrated Web Apps</h3>
+        <p class="svc-desc">Full-stack AI web applications with intelligent features, API integrations, and machine-learning-powered UX that learns and adapts.</p>
+        <div class="svc-arrow"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="svc-num"></div>
+        <div class="svc-icon"></div>
+        <h3 class="svc-title">Premium UI/UX Design</h3>
+        <p class="svc-desc">Cinematic, luxury interface design for startups and enterprises. Design systems that feel like they belong in a billion-dollar product.</p>
+        <div class="svc-arrow"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="svc-num"></div>
+        <div class="svc-icon"></div>
+        <h3 class="svc-title">SaaS Product Development</h3>
+        <p class="svc-desc">End-to-end SaaS platforms with subscription systems, user dashboards, analytics, and AI-powered features built for scale.</p>
+        <div class="svc-arrow"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="svc-num"></div>
+        <div class="svc-icon"></div>
+        <h3 class="svc-title">AI Prompt Engineering</h3>
+        <p class="svc-desc">Custom LLM workflows, prompt systems, and AI feature architectures that turn raw AI capability into polished product features.</p>
+        <div class="svc-arrow"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="svc-num"></div>
+        <div class="svc-icon"></div>
+        <h3 class="svc-title">PWA Development</h3>
+        <p class="svc-desc">Progressive web apps with offline capabilities, push notifications, and native-app feel  without the App Store gatekeeping.</p>
+        <div class="svc-arrow"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="svc-num"></div>
+        <div class="svc-icon"></div>
+        <h3 class="svc-title">Performance Optimization</h3>
+        <p class="svc-desc">Transform sluggish websites into sub-second experiences. Core Web Vitals mastery, lazy loading, and intelligent caching strategies.</p>
+        <div class="svc-arrow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-label"> Journey</div>
+      <h2 class="section-title">The Path to <span class="gradient-text">Mastery</span></h2>
+    </div>
+    <div class="timeline-list">
+      <div class="tl-item reveal">
+        <div class="tl-line"></div>
+        <div class="tl-dot"></div>
+        <div class="tl-year">2020</div>
+        <div class="tl-content">
+          <h3>The Origin</h3>
+          <p>Wrote my first HTML file. Fell completely in love with the idea that code becomes something humans see, feel, and use.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2021</div>
+        <div class="tl-content">
+          <h3>CSS Mastery</h3>
+          <p>Went deep on CSS animations, layouts, and design systems. Realized that design and code are the same thing just different languages.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2022</div>
+        <div class="tl-content">
+          <h3>JavaScript Era</h3>
+          <p>Unlocked the full power of JavaScript. Built my first interactive apps, APIs, and browser-based tools. Shipped 10+ projects.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023</div>
+        <div class="tl-content">
+          <h3>AI Awakening</h3>
+          <p>Discovered the transformative power of AI. Became obsessed with prompt engineering, AI APIs, and building intelligent web systems.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot active"></div>
+        <div class="tl-year">2024-25</div>
+        <div class="tl-content">
+          <h3>ToolVerse &amp; Beyond</h3>
+          <p>Launched ToolVerse AI, multiple SaaS products, and this portfolio. Now building at the frontier of AI + Web technology.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-label"> Testimonials</div>
+      <h2 class="section-title">What Others <span class="gradient-text">Say</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars"></div>
+        <p class="testi-text">"Rupesh delivered a UI that made our investors ask 'did a design agency build this?'. No, it was one developer in 3 weeks. Absolutely extraordinary."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div>
+            <div class="testi-name">Arjun K.</div>
+            <div class="testi-role">Startup Founder</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"></div>
+        <p class="testi-text">"The AI integration he built for our platform saved 40 hours of manual work per week. His engineering thinking is years ahead of typical developers."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SM</div>
+          <div>
+            <div class="testi-name">Sarah M.</div>
+            <div class="testi-role">Product Manager</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"></div>
+        <p class="testi-text">"I've worked with many developers. Rupesh is the rare kind who thinks in systems, not just features. He understands the entire product, not just his code."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RP</div>
+          <div>
+            <div class="testi-name">Ravi P.</div>
+            <div class="testi-role">Tech Lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARTUP VISION -->
+<section id="vision">
+  <div class="section-container">
+    <div class="vision-inner reveal">
+      <div class="vision-label"> Vision 2030</div>
+      <h2 class="vision-title">
+        The Web Will Be<br>
+        <span class="gradient-text">Alive.</span>
+        <span class="gradient-text-2"> Intelligent.</span>
+        <span> Personal.</span>
+      </h2>
+      <p class="vision-sub">I'm not waiting for that future. I'm building it, one product, one interface, one experience at a time. Join me at the frontier.</p>
+      <div class="vision-cta">
+        <a href="#contact" class="btn-primary large">Build the Future With Me</a>
+      </div>
+    </div>
+    <div class="vision-grid-bg"></div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <div class="section-label"> Contact</div>
+      <h2 class="section-title">Let's Build<br><span class="gradient-text">Something Legendary</span></h2>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-left reveal">
+        <p class="contact-intro">Have a vision? A product idea? A problem that needs an AI-powered solution? I want to hear it. Let's turn your ambition into a product that defines an era.</p>
+        <div class="contact-socials">
+          <a href="#" class="social-btn" title="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="#" class="social-btn" title="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="#" class="social-btn" title="X / Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.722-8.845L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a href="#" class="social-btn" title="Discord">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.113 18.1.136 18.11a19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+            Discord
+          </a>
+          <a href="#" class="social-btn">
+            <span>Dev.to</span>
+          </a>
+          <a href="#" class="social-btn">
+            <span>CodePen</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <div class="contact-form-wrapper">
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder="Your Name" id="name">
+            <div class="form-line"></div>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-input" placeholder="Your Email" id="email">
+            <div class="form-line"></div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder="Project Type" id="project">
+            <div class="form-line"></div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-input form-textarea" placeholder="Tell me about your vision..." id="contact-msg"></textarea>
+            <div class="form-line"></div>
+          </div>
+          <button class="btn-primary form-submit" onclick="handleContact()">
+            <span>Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="form-success" id="form-success">
+            <span></span> Message received. I'll be in touch within 24 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark">RI</span>
+        <span class="footer-name">Rupesh Bhagwan Ishi</span>
+        <span class="footer-tagline">AI Web Developer</span>
+      </div>
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy"> 2025 Rupesh Bhagwan Ishi. Built with obsession.</span>
+      <span class="footer-version">v2.0.25</span>
+    </div>
+  </div>
+  <!-- Easter Egg trigger -->
+  <div class="easter-egg-hint" title="Try the Konami Code!"></div>
+</footer>
+
+<!-- EASTER EGG OVERLAY -->
+<div id="easter-egg" class="easter-egg-overlay">
+  <div class="eg-inner">
+    <div class="eg-icon">??</div>
+    <h2 class="eg-title">You Found It!</h2>
+    <p class="eg-text">Konami Code unlocked. You're the kind of person who explores beyond the surface. That's exactly the kind of person I love working with.</p>
+    <p class="eg-secret">Secret: This site was built in 72 hours of pure flow state.</p>
+    <button class="btn-primary" onclick="closeEasterEgg()">Close</button>
+  </div>
+</div>
+
+<!-- FLOATING ACTION UI -->
+<div class="floating-actions">
+  <button class="fa-btn" onclick="scrollToTop()" title="Back to top">back to^top</button>
+  <button class="fa-btn" onclick="openCommandPalette()" title="Command Palette">search section</section></button>
+</div>
+
+<script src="script.js"></script>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDk-L-q_2TYaD75VgvjGv75vuE5XygBSpg",
+
+authDomain: "rupesh-portfolio-66b1c.firebaseapp.com",
+
+projectId: "rupesh-portfolio-66b1c",
+
+storageBucket: "rupesh-portfolio-66b1c.firebasestorage.app",
+
+messagingSenderId: "483425715165",
+
+appId: "1:483425715165:web:f05d71e869d0ac5dddec3"
+
+};
+
+let db = null;
+try {
+  const app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (e) {
+  console.warn("Firebase init note:", e);
+}
+
+window.handleContact = async function(){
+  const nameEl = document.getElementById("name") || document.getElementById("contact-name");
+  const emailEl = document.getElementById("email") || document.getElementById("contact-email");
+  const msgEl = document.getElementById("contact-msg");
+  const projectEl = document.getElementById("project") || document.getElementById("contact-project");
+
+  const name = nameEl ? nameEl.value.trim() : "";
+  const email = emailEl ? emailEl.value.trim() : "";
+  const message = msgEl ? msgEl.value.trim() : "";
+  const project = projectEl ? projectEl.value.trim() : "";
+
+  if (!name || !email || !message) {
+    [nameEl, emailEl, msgEl].forEach(el => {
+      if (el && !el.value.trim()) {
+        el.style.animation = 'shake 0.3s ease';
+        setTimeout(() => { el.style.animation = ''; }, 300);
+      }
+    });
+    return;
+  }
+
+  if (db) {
+    try {
+      await addDoc(collection(db,"messages"),{
+        name,
+        email,
+        project,
+        message,
+        time: new Date()
+      });
+    } catch(err) {
+      console.warn("Message log note:", err);
+    }
+  }
+
+  const success = document.getElementById('form-success');
+  if (success) {
+    success.style.display = 'block';
+    setTimeout(() => { success.style.display = 'none'; }, 6000);
+  }
+
+  if (nameEl) nameEl.value = "";
+  if (emailEl) emailEl.value = "";
+  if (projectEl) projectEl.value = "";
+  if (msgEl) msgEl.value = "";
+};
+
+</script>
+</body>
+</html>

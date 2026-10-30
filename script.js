@@ -15,21 +15,26 @@ const cursorDot = document.getElementById('cursor-dot');
 let mouseX = 0, mouseY = 0;
 let glowX = 0, glowY = 0;
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top = mouseY + 'px';
-});
+if (cursorDot && cursorGlow) {
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
+  });
 
-function animateCursor() {
-  glowX += (mouseX - glowX) * 0.06;
-  glowY += (mouseY - glowY) * 0.06;
-  cursorGlow.style.left = glowX + 'px';
-  cursorGlow.style.top = glowY + 'px';
-  requestAnimationFrame(animateCursor);
+  function animateCursor() {
+    glowX += (mouseX - glowX) * 0.06;
+    glowY += (mouseY - glowY) * 0.06;
+    cursorGlow.style.left = glowX + 'px';
+    cursorGlow.style.top = glowY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+
+  if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+    animateCursor();
+  }
 }
-animateCursor();
 
 // ---- NAVBAR SCROLL ----
 const navbar = document.getElementById('navbar');
@@ -107,106 +112,144 @@ function animateCounters() {
 
 // ---- CANVAS PARTICLE SYSTEM (HERO) ----
 const canvas = document.getElementById('hero-canvas');
-const ctx = canvas.getContext('2d');
+let ctx = null;
 let particles = [];
-let animId;
+let animId = null;
+let isHeroVisible = true;
+let mx = -1000, my = -1000;
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+if (canvas && canvas.getContext) {
+  ctx = canvas.getContext('2d');
 
-class Particle {
-  constructor() {
-    this.reset();
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
-  reset() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 1.5 + 0.3;
-    this.speedX = (Math.random() - 0.5) * 0.4;
-    this.speedY = (Math.random() - 0.5) * 0.4;
-    this.opacity = Math.random() * 0.5 + 0.1;
-    this.color = Math.random() > 0.5 ? '#3b82f6' : '#a855f7';
-    this.pulse = Math.random() * Math.PI * 2;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.pulse += 0.02;
-    this.opacity = 0.1 + Math.sin(this.pulse) * 0.2;
-    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  class Particle {
+    constructor() {
       this.reset();
     }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 1.5 + 0.3;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.speedY = (Math.random() - 0.5) * 0.4;
+      this.opacity = Math.random() * 0.5 + 0.1;
+      this.color = Math.random() > 0.5 ? '#3b82f6' : '#a855f7';
+      this.pulse = Math.random() * Math.PI * 2;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.pulse += 0.02;
+      this.opacity = 0.1 + Math.sin(this.pulse) * 0.2;
+      if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+        this.reset();
+      }
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.opacity;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
   }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.globalAlpha = this.opacity;
-    ctx.fill();
-    ctx.globalAlpha = 1;
-  }
-}
 
-// Create particles
-for (let i = 0; i < 120; i++) particles.push(new Particle());
+  // Create particles
+  for (let i = 0; i < 120; i++) particles.push(new Particle());
 
-// Connection lines between particles
-function drawConnections() {
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = '#3b82f6';
-        ctx.globalAlpha = (1 - dist / 100) * 0.08;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-        ctx.globalAlpha = 1;
+  // Connection lines between particles
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = '#3b82f6';
+          ctx.globalAlpha = (1 - dist / 100) * 0.08;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
       }
     }
   }
-}
 
-// Mouse interaction
-let mx = 0, my = 0;
-canvas.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  // Mouse interaction on hero container
+  const heroEl = document.getElementById('hero');
+  if (heroEl) {
+    heroEl.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mx = e.clientX - rect.left;
+      my = e.clientY - rect.top;
+    });
+    heroEl.addEventListener('mouseleave', () => {
+      mx = -1000;
+      my = -1000;
+    });
+  }
 
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  // Subtle radial gradient overlay
-  const gradient = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width * 0.8);
-  gradient.addColorStop(0, 'rgba(59,130,246,0.03)');
-  gradient.addColorStop(0.5, 'rgba(168,85,247,0.02)');
-  gradient.addColorStop(1, 'transparent');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  particles.forEach(p => {
-    // Mouse attraction
-    const dx = mx - p.x;
-    const dy = my - p.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 150) {
-      p.x += dx * 0.002;
-      p.y += dy * 0.002;
+  function animateParticles() {
+    if (!isHeroVisible) {
+      animId = null;
+      return;
     }
-    p.update();
-    p.draw();
-  });
-  
-  drawConnections();
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Subtle radial gradient overlay
+    const gradient = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width * 0.8);
+    gradient.addColorStop(0, 'rgba(59,130,246,0.03)');
+    gradient.addColorStop(0.5, 'rgba(168,85,247,0.02)');
+    gradient.addColorStop(1, 'transparent');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach(p => {
+      // Mouse attraction
+      const dx = mx - p.x;
+      const dy = my - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 150) {
+        p.x += dx * 0.002;
+        p.y += dy * 0.002;
+      }
+      p.update();
+      p.draw();
+    });
+    
+    drawConnections();
+    animId = requestAnimationFrame(animateParticles);
+  }
+
+  // IntersectionObserver to pause/resume hero canvas
+  if (heroEl && 'IntersectionObserver' in window) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isHeroVisible = entry.isIntersecting;
+        if (isHeroVisible && !animId) {
+          animId = requestAnimationFrame(animateParticles);
+        } else if (!isHeroVisible && animId) {
+          cancelAnimationFrame(animId);
+          animId = null;
+        }
+      });
+    }, { threshold: 0.02 });
+    heroObserver.observe(heroEl);
+  }
+
   animId = requestAnimationFrame(animateParticles);
 }
-animateParticles();
 
 // ---- SCROLL REVEAL ----
 const revealObserver = new IntersectionObserver((entries) => {
@@ -271,15 +314,15 @@ setupStaggeredReveal();
 
 // ---- COMMAND PALETTE ----
 const commandItems = [
-  { icon: '??', name: 'About Me', desc: 'Section', action: () => scrollTo('#about') },
-  { icon: '?', name: 'Skills', desc: 'Section', action: () => scrollTo('#skills') },
-  { icon: '??', name: 'Projects', desc: 'Section', action: () => scrollTo('#projects') },
-  { icon: '???', name: 'Services', desc: 'Section', action: () => scrollTo('#services') },
-  { icon: '??', name: 'Timeline', desc: 'Journey', action: () => scrollTo('#timeline') },
-  { icon: '??', name: 'Contact', desc: 'Get in touch', action: () => scrollTo('#contact') },
-  { icon: '??', name: 'Download Resume', desc: 'PDF', action: downloadResume },
-  { icon: '??', name: 'Back to Top', desc: 'Navigate', action: scrollToTop },
-  { icon: '??', name: 'Easter Egg', desc: 'Secret', action: openEasterEgg },
+  { icon: '👤', name: 'About Me', desc: 'Section', action: () => scrollTo('#about') },
+  { icon: '⚡', name: 'Skills', desc: 'Section', action: () => scrollTo('#skills') },
+  { icon: '🚀', name: 'Projects', desc: 'Section', action: () => scrollTo('#projects') },
+  { icon: '💼', name: 'Services', desc: 'Section', action: () => scrollTo('#services') },
+  { icon: '⏳', name: 'Timeline', desc: 'Journey', action: () => scrollTo('#timeline') },
+  { icon: '✉️', name: 'Contact', desc: 'Get in touch', action: () => scrollTo('#contact') },
+  { icon: '📄', name: 'Download Resume', desc: 'PDF', action: downloadResume },
+  { icon: '↑', name: 'Back to Top', desc: 'Navigate', action: scrollToTop },
+  { icon: '🎮', name: 'Easter Egg', desc: 'Secret', action: openEasterEgg },
 ];
 
 function scrollTo(selector) {
@@ -531,16 +574,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// ---- HERO CANVAS MOUSE REPEL ----
-const heroEl = document.getElementById('hero');
-if (heroEl && canvas) {
-  heroEl.addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mx = e.clientX - rect.left;
-    my = e.clientY - rect.top;
-  });
-}
-
 // ---- DYNAMIC BACKGROUND GLOW on SCROLL ----
 window.addEventListener('scroll', () => {
   const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
@@ -610,17 +643,10 @@ function createSparkle(parent) {
 // ---- INITIALIZE ----
 console.log(`
 %c
-¦¦¦¦¦¦+ ¦¦+   ¦¦+¦¦¦¦¦¦+ ¦¦¦¦¦¦¦+¦¦¦¦¦¦¦+¦¦+  ¦¦+
-¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+--¦¦+¦¦+----+¦¦+----+¦¦¦  ¦¦¦
-¦¦¦¦¦¦++¦¦¦   ¦¦¦¦¦¦¦¦¦++¦¦¦¦¦+  ¦¦¦¦¦¦¦+¦¦¦¦¦¦¦¦
-¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+---+ ¦¦+--+  +----¦¦¦¦¦+--¦¦¦
-¦¦¦  ¦¦¦+¦¦¦¦¦¦++¦¦¦     ¦¦¦¦¦¦¦+¦¦¦¦¦¦¦¦¦¦¦  ¦¦¦
-+-+  +-+ +-----+ +-+     +------++------++-+  +-+
-
   RUPESH ISHI — AI Web Developer
-  You found the console! You're clearly extraordinary.
+  You found the console! Welcome to the source.
   
-  Try: Konami Code ????????BA for a surprise.
+  Try: Konami Code (↑ ↑ ↓ ↓ ← → ← → B A) for a surprise.
   Or: Press Ctrl+K to open the command palette.
 `,
 'color: #a855f7; font-family: monospace; font-size: 11px;');

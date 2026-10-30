@@ -49,13 +49,13 @@
 <div id="command-overlay">
   <div id="command-palette">
     <div class="cmd-header">
-      <span class="cmd-icon"></span>
+      <span class="cmd-icon">🔍</span>
       <input id="cmd-input" placeholder="Type a command or navigate..." autocomplete="off" />
       <span class="cmd-close" onclick="closeCommandPalette()">ESC</span>
     </div>
     <div class="cmd-results" id="cmd-results"></div>
     <div class="cmd-footer">
-      <span> navigate</span><span> select</span><span>esc close</span>
+      <span>↑↓ navigate</span><span>↵ select</span><span>esc close</span>
     </div>
   </div>
 </div>
@@ -75,12 +75,12 @@
       <a href="#contact" class="nav-link">Contact</a>
     </div>
     <div class="nav-actions">
-      <button class="cmd-trigger" onclick="openCommandPalette()" title="Command Palette (Ctrl+K)">
-        <span>sections</span>
+      <button class="cmd-trigger" type="button" onclick="openCommandPalette()" title="Command Palette (Ctrl+K)" aria-label="Open Command Palette">
+        <span>⌘K sections</span>
       </button>
       <a href="#contact" class="nav-cta">Hire Me</a>
     </div>
-    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+    <button class="hamburger" id="hamburger" type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -138,15 +138,15 @@
   </div>
   <div class="hero-floating-cards">
     <div class="float-card card-1">
-      <div class="fc-icon"></div>
+      <div class="fc-icon">⚡</div>
       <div class="fc-text">AI Integration</div>
     </div>
     <div class="float-card card-2">
-      <div class="fc-icon"></div>
+      <div class="fc-icon">🚀</div>
       <div class="fc-text">Lightning Fast</div>
     </div>
     <div class="float-card card-3">
-      <div class="fc-icon"></div>
+      <div class="fc-icon">🌐</div>
       <div class="fc-text">Web3 Ready</div>
     </div>
   </div>
@@ -161,13 +161,13 @@
   <div class="section-container">
     <div class="about-layout">
       <div class="about-left reveal">
-        <div class="section-label"> About Me</div>
+        <div class="section-label">✦ About Me</div>
         <h2 class="section-title">Not Just a Developer.<br><span class="gradient-text">A Digital Architect.</span></h2>
         <p class="about-bio">
-          I'm <strong>Rupesh Bhagwan Ishi</strong>  an AI Web Developer who builds at the intersection of artificial intelligence, design systems, and human experience. I don't write code; I architect intelligent digital ecosystems that think, adapt, and inspire.
+          I'm <strong>Rupesh Bhagwan Ishi</strong> — an AI Web Developer who builds at the intersection of artificial intelligence, design systems, and human experience. I don't write code; I architect intelligent digital ecosystems that think, adapt, and inspire.
         </p>
         <p class="about-bio">
-          My work exists at a rare crossroads: where cinematic design meets machine intelligence. Every pixel I place carries intention. Every line of code I write carries purpose. I believe the next decade of the web will be defined by AI-native experiences  and I'm here to build them.
+          My work exists at a rare crossroads: where cinematic design meets machine intelligence. Every pixel I place carries intention. Every line of code I write carries purpose. I believe the next decade of the web will be defined by AI-native experiences — and I'm here to build them.
         </p>
         <div class="about-tags">
           <span class="tag">AI-First Thinking</span>
@@ -181,9 +181,11 @@
           <a href="resume.pdf"
              download="Rupesh-Ishi-Resume.pdf"
              id="resume-btn"
-             class="resume-btn">
+             class="resume-btn"
+             title="Download Rupesh Ishi Resume PDF"
+             aria-label="Download Rupesh Ishi Resume PDF">
              Download Resume
-        </a>
+          </a>
         </div>
       </div>
       <div class="about-right reveal">
@@ -246,28 +248,28 @@
           <div class="t-line t-output"> I am building that web today."</div>
           <div class="t-line"><span class="t-prompt">$</span> ls skills/</div>
           <div class="t-line t-output">AI_Engineering/ Frontend/ Design_Systems/ SaaS_Products/ PWA/</div>
-          <div class="t-line"><span class="t-prompt"></span> <span class="t-cursor"></span></div>
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
         </div>
       </div>
       <div class="ai-manifesto">
-        <div class="section-label"> Philosophy</div>
+        <div class="section-label">✦ Philosophy</div>
         <h2 class="section-title">AI is not a tool.<br><span class="gradient-text">It's a language.</span></h2>
         <p class="manifesto-text">I speak this language fluently. From prompt engineering architectures to AI-integrated web systems, I translate machine intelligence into human delight. My approach is simple: build products that make people feel like the future arrived early.</p>
         <div class="manifesto-pillars">
           <div class="pillar">
-            <div class="pillar-num"></div>
+            <div class="pillar-num">01</div>
             <div class="pillar-text">AI-Native Architecture</div>
           </div>
           <div class="pillar">
-            <div class="pillar-num"></div>
+            <div class="pillar-num">02</div>
             <div class="pillar-text">Cinematic UI Systems</div>
           </div>
           <div class="pillar">
-            <div class="pillar-num"></div>
+            <div class="pillar-num">03</div>
             <div class="pillar-text">Product Thinking</div>
           </div>
           <div class="pillar">
-            <div class="pillar-num"></div>
+            <div class="pillar-num">04</div>
             <div class="pillar-text">Infinite Iteration</div>
           </div>
         </div>
@@ -280,102 +282,102 @@
 <section id="skills">
   <div class="section-container">
     <div class="section-header reveal">
-      <div class="section-label"> Skills Matrix</div>
+      <div class="section-label">✦ Skills Matrix</div>
       <h2 class="section-title">Capabilities &amp;<br><span class="gradient-text">Expertise</span></h2>
     </div>
     <div class="skills-grid reveal">
       <div class="skill-card" data-level="95">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🌐</div>
         <div class="skill-name">HTML5</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:95%"></div></div>
         <div class="skill-pct">95%</div>
       </div>
       <div class="skill-card" data-level="92">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🎨</div>
         <div class="skill-name">CSS3 / SCSS</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:92%"></div></div>
         <div class="skill-pct">92%</div>
       </div>
       <div class="skill-card" data-level="88">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">⚡</div>
         <div class="skill-name">JavaScript</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
         <div class="skill-pct">88%</div>
       </div>
       <div class="skill-card" data-level="90">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">📱</div>
         <div class="skill-name">Responsive Design</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
         <div class="skill-pct">90%</div>
       </div>
       <div class="skill-card" data-level="85">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">✨</div>
         <div class="skill-name">UI/UX Design</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
         <div class="skill-pct">85%</div>
       </div>
       <div class="skill-card" data-level="93">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🧠</div>
         <div class="skill-name">AI Prompt Engineering</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:93%"></div></div>
         <div class="skill-pct">93%</div>
       </div>
       <div class="skill-card" data-level="87">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🏗️</div>
         <div class="skill-name">Frontend Architecture</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:87%"></div></div>
         <div class="skill-pct">87%</div>
       </div>
       <div class="skill-card" data-level="80">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🔥</div>
         <div class="skill-name">Firebase</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
         <div class="skill-pct">80%</div>
       </div>
       <div class="skill-card" data-level="90">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🐙</div>
         <div class="skill-name">GitHub</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
         <div class="skill-pct">90%</div>
       </div>
       <div class="skill-card" data-level="82">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">📈</div>
         <div class="skill-name">SEO &amp; Performance</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div>
         <div class="skill-pct">82%</div>
       </div>
       <div class="skill-card" data-level="88">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">💼</div>
         <div class="skill-name">SaaS UI Systems</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
         <div class="skill-pct">88%</div>
       </div>
       <div class="skill-card" data-level="85">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">📲</div>
         <div class="skill-name">PWA Development</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
         <div class="skill-pct">85%</div>
       </div>
       <div class="skill-card" data-level="91">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">⚙️</div>
         <div class="skill-name">AI Workflow Design</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:91%"></div></div>
         <div class="skill-pct">91%</div>
       </div>
       <div class="skill-card" data-level="84">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🚀</div>
         <div class="skill-name">Web Performance</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:84%"></div></div>
         <div class="skill-pct">84%</div>
       </div>
       <div class="skill-card" data-level="86">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">💾</div>
         <div class="skill-name">LocalStorage Systems</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:86%"></div></div>
         <div class="skill-pct">86%</div>
       </div>
       <div class="skill-card" data-level="89">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">🎯</div>
         <div class="skill-name">Productivity Systems</div>
         <div class="skill-bar"><div class="skill-fill" style="--w:89%"></div></div>
         <div class="skill-pct">89%</div>
@@ -388,7 +390,7 @@
 <section id="projects">
   <div class="section-container">
     <div class="section-header reveal">
-      <div class="section-label"> Featured Work</div>
+      <div class="section-label">✦ Featured Work</div>
       <h2 class="section-title">Projects That<br><span class="gradient-text">Define Tomorrow</span></h2>
     </div>
     <div class="projects-grid">
@@ -396,13 +398,13 @@
       <div class="project-card featured reveal">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge"> Featured</div>
+          <div class="project-badge">✦ Featured</div>
           <div class="project-links">
           </div>
         </div>
-        <div class="project-num"></div>
+        <div class="project-num">01</div>
         <h3 class="project-title">ToolVerse AI</h3>
-        <p class="project-desc">A multi-dimensional AI tools ecosystem  50+ intelligent utilities living inside one premium platform. From text transformers to image AI and code generators, ToolVerse is the future of productivity software.</p>
+        <p class="project-desc">A multi-dimensional AI tools ecosystem — 50+ intelligent utilities living inside one premium platform. From text transformers to image AI and code generators, ToolVerse is the future of productivity software.</p>
         <div class="project-tags">                              
           <span>AI Integration</span>
           <span>SaaS Platform</span>
@@ -417,11 +419,11 @@
       <div class="project-card reveal">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge"> AI</div>
+          <div class="project-badge">✦ AI</div>
           <div class="project-links">
           </div>                                                 
         </div>
-        <div class="project-num"></div>                             
+        <div class="project-num">02</div>                             
         <h3 class="project-title">AI Tools Platform</h3>
         <p class="project-desc">A curated intelligence marketplace for developers and creators. Discover, test, and integrate the world's most powerful AI APIs through a stunning unified interface.</p>
         <div class="project-tags">
@@ -434,13 +436,13 @@
       <div class="project-card reveal">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge"> Web</div>
+          <div class="project-badge">✦ Web</div>
           <div class="project-links">
           </div>
         </div>
-        <div class="project-num"></div>
+        <div class="project-num">03</div>
         <h3 class="project-title">Futuristic Portfolio</h3>
-        <p class="project-desc">This very website  an engineering marvel built with pure HTML, CSS, and JS. A cinematic demonstration of what's possible when design and code merge at the highest level.</p>
+        <p class="project-desc">This very website — an engineering marvel built with pure HTML, CSS, and JS. A cinematic demonstration of what's possible when design and code merge at the highest level.</p>
         <div class="project-tags">
           <span>Cinematic UI</span>
           <span>Animations</span>
@@ -451,13 +453,13 @@
       <div class="project-card reveal">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge"> SaaS</div>
+          <div class="project-badge">✦ SaaS</div>
           <div class="project-links">
           </div>
         </div>
-        <div class="project-num"></div>
+        <div class="project-num">04</div>
         <h3 class="project-title">Productivity System</h3>
-        <p class="project-desc">An offline-first AI-powered productivity engine. Task intelligence, focus modes, habit systems, and AI coaching  all running client-side with zero latency.</p>
+        <p class="project-desc">An offline-first AI-powered productivity engine. Task intelligence, focus modes, habit systems, and AI coaching — all running client-side with zero latency.</p>
         <div class="project-tags">
           <span>AI Coach</span>
           <span>Offline-First</span>
@@ -468,13 +470,13 @@
       <div class="project-card reveal">
         <div class="project-glow"></div>
         <div class="project-header">
-          <div class="project-badge"> Utility</div>
+          <div class="project-badge">✦ Utility</div>
           <div class="project-links">
           </div>
         </div>
-        <div class="project-num"></div>
+        <div class="project-num">05</div>
         <h3 class="project-title">Multi-Tool Platform</h3>
-        <p class="project-desc">A Swiss army knife for the modern web  converters, generators, analyzers, and formatters in one lightning-fast platform. 30+ tools. Zero dependencies. Pure power.</p>
+        <p class="project-desc">A Swiss army knife for the modern web — converters, generators, analyzers, and formatters in one lightning-fast platform. 30+ tools. Zero dependencies. Pure power.</p>
         <div class="project-tags">
           <span>30+ Utilities</span>
           <span>Zero Backend</span>
@@ -490,7 +492,7 @@
 <section id="techstack">
   <div class="section-container">
     <div class="section-header reveal">
-      <div class="section-label"> Tech Stack</div>
+      <div class="section-label">✦ Tech Stack</div>
       <h2 class="section-title">The Arsenal I <span class="gradient-text">Command</span></h2>
     </div>
     <div class="tech-orbit reveal">
@@ -550,51 +552,51 @@
 <section id="services">
   <div class="section-container">
     <div class="section-header reveal">
-      <div class="section-label"> Services</div>
+      <div class="section-label">✦ Services</div>
       <h2 class="section-title">What I Build<br><span class="gradient-text">for You</span></h2>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <div class="svc-num"></div>
-        <div class="svc-icon"></div>
+        <div class="svc-num">01</div>
+        <div class="svc-icon">🧠</div>
         <h3 class="svc-title">AI-Integrated Web Apps</h3>
         <p class="svc-desc">Full-stack AI web applications with intelligent features, API integrations, and machine-learning-powered UX that learns and adapts.</p>
-        <div class="svc-arrow"></div>
+        <div class="svc-arrow">→</div>
       </div>
       <div class="service-card reveal">
-        <div class="svc-num"></div>
-        <div class="svc-icon"></div>
+        <div class="svc-num">02</div>
+        <div class="svc-icon">🎨</div>
         <h3 class="svc-title">Premium UI/UX Design</h3>
         <p class="svc-desc">Cinematic, luxury interface design for startups and enterprises. Design systems that feel like they belong in a billion-dollar product.</p>
-        <div class="svc-arrow"></div>
+        <div class="svc-arrow">→</div>
       </div>
       <div class="service-card reveal">
-        <div class="svc-num"></div>
-        <div class="svc-icon"></div>
+        <div class="svc-num">03</div>
+        <div class="svc-icon">🚀</div>
         <h3 class="svc-title">SaaS Product Development</h3>
         <p class="svc-desc">End-to-end SaaS platforms with subscription systems, user dashboards, analytics, and AI-powered features built for scale.</p>
-        <div class="svc-arrow"></div>
+        <div class="svc-arrow">→</div>
       </div>
       <div class="service-card reveal">
-        <div class="svc-num"></div>
-        <div class="svc-icon"></div>
+        <div class="svc-num">04</div>
+        <div class="svc-icon">⚡</div>
         <h3 class="svc-title">AI Prompt Engineering</h3>
         <p class="svc-desc">Custom LLM workflows, prompt systems, and AI feature architectures that turn raw AI capability into polished product features.</p>
-        <div class="svc-arrow"></div>
+        <div class="svc-arrow">→</div>
       </div>
       <div class="service-card reveal">
-        <div class="svc-num"></div>
-        <div class="svc-icon"></div>
+        <div class="svc-num">05</div>
+        <div class="svc-icon">📱</div>
         <h3 class="svc-title">PWA Development</h3>
-        <p class="svc-desc">Progressive web apps with offline capabilities, push notifications, and native-app feel  without the App Store gatekeeping.</p>
-        <div class="svc-arrow"></div>
+        <p class="svc-desc">Progressive web apps with offline capabilities, push notifications, and native-app feel — without the App Store gatekeeping.</p>
+        <div class="svc-arrow">→</div>
       </div>
       <div class="service-card reveal">
-        <div class="svc-num"></div>
-        <div class="svc-icon"></div>
+        <div class="svc-num">06</div>
+        <div class="svc-icon">⚡</div>
         <h3 class="svc-title">Performance Optimization</h3>
         <p class="svc-desc">Transform sluggish websites into sub-second experiences. Core Web Vitals mastery, lazy loading, and intelligent caching strategies.</p>
-        <div class="svc-arrow"></div>
+        <div class="svc-arrow">→</div>
       </div>
     </div>
   </div>
@@ -604,7 +606,7 @@
 <section id="timeline">
   <div class="section-container">
     <div class="section-header reveal">
-      <div class="section-label"> Journey</div>
+      <div class="section-label">✦ Journey</div>
       <h2 class="section-title">The Path to <span class="gradient-text">Mastery</span></h2>
     </div>
     <div class="timeline-list">
@@ -657,12 +659,12 @@
 <section id="testimonials">
   <div class="section-container">
     <div class="section-header reveal">
-      <div class="section-label"> Testimonials</div>
+      <div class="section-label">✦ Testimonials</div>
       <h2 class="section-title">What Others <span class="gradient-text">Say</span></h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
-        <div class="testi-stars"></div>
+        <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"Rupesh delivered a UI that made our investors ask 'did a design agency build this?'. No, it was one developer in 3 weeks. Absolutely extraordinary."</p>
         <div class="testi-author">
           <div class="testi-avatar">AK</div>
@@ -673,7 +675,7 @@
         </div>
       </div>
       <div class="testi-card reveal">
-        <div class="testi-stars"></div>
+        <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"The AI integration he built for our platform saved 40 hours of manual work per week. His engineering thinking is years ahead of typical developers."</p>
         <div class="testi-author">
           <div class="testi-avatar">SM</div>
@@ -684,7 +686,7 @@
         </div>
       </div>
       <div class="testi-card reveal">
-        <div class="testi-stars"></div>
+        <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"I've worked with many developers. Rupesh is the rare kind who thinks in systems, not just features. He understands the entire product, not just his code."</p>
         <div class="testi-author">
           <div class="testi-avatar">RP</div>
@@ -702,7 +704,7 @@
 <section id="vision">
   <div class="section-container">
     <div class="vision-inner reveal">
-      <div class="vision-label"> Vision 2030</div>
+      <div class="vision-label">✦ Vision 2030</div>
       <h2 class="vision-title">
         The Web Will Be<br>
         <span class="gradient-text">Alive.</span>
@@ -722,14 +724,14 @@
 <section id="contact">
   <div class="section-container">
     <div class="section-header reveal">
-      <div class="section-label"> Contact</div>
+      <div class="section-label">✦ Contact</div>
       <h2 class="section-title">Let's Build<br><span class="gradient-text">Something Legendary</span></h2>
     </div>
     <div class="contact-layout">
       <div class="contact-left reveal">
         <p class="contact-intro">Have a vision? A product idea? A problem that needs an AI-powered solution? I want to hear it. Let's turn your ambition into a product that defines an era.</p>
         <div class="contact-socials">
-          <a href="#" class="social-btn" title="GitHub">
+          <a href="https://github.com/rupeshishi3-bot" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
             GitHub
           </a>
@@ -771,12 +773,12 @@
             <textarea class="form-input form-textarea" placeholder="Tell me about your vision..." id="contact-msg"></textarea>
             <div class="form-line"></div>
           </div>
-          <button class="btn-primary form-submit" onclick="handleContact()">
+          <button class="btn-primary form-submit" type="button" onclick="handleContact()">
             <span>Send Message</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="form-success" id="form-success">
-            <span></span> Message received. I'll be in touch within 24 hours.
+            <span>✓</span> Message received. I'll be in touch within 24 hours.
           </div>
         </div>
       </div>
@@ -801,7 +803,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy"> 2025 Rupesh Bhagwan Ishi. Built with obsession.</span>
+      <span class="footer-copy">&copy; 2025 Rupesh Bhagwan Ishi. Built with obsession.</span>
       <span class="footer-version">v2.0.25</span>
     </div>
   </div>
@@ -812,18 +814,18 @@
 <!-- EASTER EGG OVERLAY -->
 <div id="easter-egg" class="easter-egg-overlay">
   <div class="eg-inner">
-    <div class="eg-icon">??</div>
+    <div class="eg-icon">🎮</div>
     <h2 class="eg-title">You Found It!</h2>
     <p class="eg-text">Konami Code unlocked. You're the kind of person who explores beyond the surface. That's exactly the kind of person I love working with.</p>
     <p class="eg-secret">Secret: This site was built in 72 hours of pure flow state.</p>
-    <button class="btn-primary" onclick="closeEasterEgg()">Close</button>
+    <button class="btn-primary" type="button" onclick="closeEasterEgg()">Close</button>
   </div>
 </div>
 
 <!-- FLOATING ACTION UI -->
 <div class="floating-actions">
-  <button class="fa-btn" onclick="scrollToTop()" title="Back to top">back to^top</button>
-  <button class="fa-btn" onclick="openCommandPalette()" title="Command Palette">search section</section></button>
+  <button class="fa-btn" type="button" onclick="scrollToTop()" title="Back to top" aria-label="Back to top">↑</button>
+  <button class="fa-btn" type="button" onclick="openCommandPalette()" title="Command Palette (Ctrl+K)" aria-label="Open Command Palette">⌘</button>
 </div>
 
 <script src="script.js"></script>

@@ -50,6 +50,11 @@ button { cursor: none; border: none; background: none; font-family: inherit; }
 input, textarea { font-family: inherit; }
 ::selection { background: rgba(168,85,247,0.3); color: #fff; }
 
+@media (pointer: coarse), (hover: none) {
+  body, button, a { cursor: auto !important; }
+  #cursor-glow, #cursor-dot { display: none !important; }
+}
+
 /* ---- SCROLLBAR ---- */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }

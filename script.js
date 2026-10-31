@@ -39,17 +39,22 @@ if (cursorDot && cursorGlow) {
 // ---- NAVBAR SCROLL ----
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+  if (navbar) {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
   }
-});
+}, { passive: true });
 
 // ---- MOBILE MENU ----
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
-  menu.classList.toggle('open');
+  const btn = document.getElementById('hamburger');
+  if (!menu) return;
+  const isOpen = menu.classList.toggle('open');
+  if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 // ---- TYPED TEXT ANIMATION ----
@@ -278,17 +283,21 @@ const skillObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.skill-card').forEach(card => skillObserver.observe(card));
 
 // ---- MAGNETIC BUTTONS ----
-document.querySelectorAll('.magnetic').forEach(btn => {
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22}px)`;
+      btn.style.transition = 'none';
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+    });
   });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = '';
-  });
-});
+}
 
 // ---- STAGGERED REVEAL for GRID CARDS ----
 function setupStaggeredReveal() {
@@ -335,12 +344,17 @@ window.filterProjects = filterProjects;
 const commandItems = [
   { icon: '👤', name: 'About Me', desc: 'Section', action: () => scrollTo('#about') },
   { icon: '⚡', name: 'Skills', desc: 'Section', action: () => scrollTo('#skills') },
-  { icon: '🚀', name: 'Projects', desc: 'Section (10 Projects)', action: () => scrollTo('#projects') },
-  { icon: '📄', name: 'PrintWise', desc: 'PDF Tools & Print Layout', action: () => { scrollTo('#projects'); window.open('https://printwise.ai.studio/', '_blank'); } },
-  { icon: '⛅', name: 'ATMOS', desc: 'Atmospheric Weather Telemetry', action: () => { scrollTo('#projects'); window.open('https://rupeshishi3-bot.github.io/Atmos.in/', '_blank'); } },
-  { icon: '🔍', name: 'ATS X-Ray', desc: 'Resume Parser Diagnostic', action: () => { scrollTo('#projects'); window.open('https://ats-x-ray-transparent-resume-parser.ai.studio/', '_blank'); } },
-  { icon: '📋', name: 'DocReady', desc: 'Document Compliance Checklist', action: () => { scrollTo('#projects'); window.open('https://docready.ai.studio/#purpose-section', '_blank'); } },
-  { icon: '🤖', name: 'NEXUS', desc: 'AI Tools & Productivity Portal', action: () => { scrollTo('#projects'); window.open('https://rupeshishi3-bot.github.io/nexus.ai/', '_blank'); } },
+  { icon: '🚀', name: 'Projects', desc: 'Section (All 10 Projects)', action: () => scrollTo('#projects') },
+  { icon: '📄', name: 'PrintWise', desc: 'PDF Tools & Print Layout', action: () => { scrollTo('#projects'); window.open('https://printwise.ai.studio/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '⛅', name: 'ATMOS', desc: 'Atmospheric Weather Telemetry', action: () => { scrollTo('#projects'); window.open('https://rupeshishi3-bot.github.io/Atmos.in/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '🔍', name: 'ATS X-Ray', desc: 'Resume Parser Diagnostic', action: () => { scrollTo('#projects'); window.open('https://ats-x-ray-transparent-resume-parser.ai.studio/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '📋', name: 'DocReady', desc: 'Document Compliance Checklist', action: () => { scrollTo('#projects'); window.open('https://docready.ai.studio/#purpose-section', '_blank', 'noopener,noreferrer'); } },
+  { icon: '🤖', name: 'NEXUS', desc: 'AI Tools & Productivity Portal', action: () => { scrollTo('#projects'); window.open('https://rupeshishi3-bot.github.io/nexus.ai/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '📊', name: 'ProjectFlows', desc: 'Workflow Graph Engine', action: () => { scrollTo('#projects'); window.open('https://projectflows.ai.studio/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '⌨️', name: 'Typing Website', desc: 'Keystroke WPM Analytics', action: () => { scrollTo('#projects'); window.open('https://rupeshishi3-bot.github.io/Typing-Website-by-Rupesh-Ishi/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '📡', name: 'StackRadar', desc: 'Edge Architecture Analyzer', action: () => { scrollTo('#projects'); window.open('https://stackradar.rupeshishi3.workers.dev/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '🛡️', name: 'ProofStack', desc: 'Structured Verification Engine', action: () => { scrollTo('#projects'); window.open('https://proofstack-gamma.vercel.app/', '_blank', 'noopener,noreferrer'); } },
+  { icon: '⏱️', name: '60Sec News', desc: 'Rapid News Briefing Microservice', action: () => { scrollTo('#projects'); window.open('https://service-60sec-news-881179795897.asia-southeast1.run.app/', '_blank', 'noopener,noreferrer'); } },
   { icon: '💼', name: 'Services', desc: 'Section', action: () => scrollTo('#services') },
   { icon: '⏳', name: 'Timeline', desc: 'Journey', action: () => scrollTo('#timeline') },
   { icon: '✉️', name: 'Contact', desc: 'Get in touch', action: () => scrollTo('#contact') },
@@ -348,6 +362,9 @@ const commandItems = [
   { icon: '↑', name: 'Back to Top', desc: 'Navigate', action: scrollToTop },
   { icon: '🎮', name: 'Easter Egg', desc: 'Secret', action: openEasterEgg },
 ];
+
+let activeCmdIndex = 0;
+let currentFilteredCommands = [];
 
 function scrollTo(selector) {
   const el = document.querySelector(selector);
@@ -358,28 +375,45 @@ function scrollTo(selector) {
 function openCommandPalette() {
   const overlay = document.getElementById('command-overlay');
   const input = document.getElementById('cmd-input');
-  if (overlay) overlay.classList.add('open');
-  if (input) input.focus();
+  if (overlay) {
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+  if (input) {
+    input.value = '';
+    input.focus();
+  }
   renderCommandItems('');
 }
 
 function closeCommandPalette() {
   const overlay = document.getElementById('command-overlay');
   const input = document.getElementById('cmd-input');
-  if (overlay) overlay.classList.remove('open');
+  if (overlay) {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
   if (input) input.value = '';
 }
 
 function renderCommandItems(query) {
   const container = document.getElementById('cmd-results');
   if (!container) return;
-  const filtered = commandItems.filter(item =>
-    item.name.toLowerCase().includes(query.toLowerCase()) ||
-    (item.desc && item.desc.toLowerCase().includes(query.toLowerCase()))
+  const q = (query || '').toLowerCase().trim();
+  currentFilteredCommands = commandItems.filter(item =>
+    item.name.toLowerCase().includes(q) ||
+    (item.desc && item.desc.toLowerCase().includes(q))
   );
-  container.innerHTML = filtered.map((item, i) => `
-    <div class="cmd-item" data-index="${i}" onclick="executeCommand(${commandItems.indexOf(item)})">
-      <span class="cmd-item-icon">${item.icon}</span>
+  activeCmdIndex = 0;
+
+  if (currentFilteredCommands.length === 0) {
+    container.innerHTML = `<div class="cmd-empty" style="padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.8rem;">No matching commands found</div>`;
+    return;
+  }
+
+  container.innerHTML = currentFilteredCommands.map((item, i) => `
+    <div class="cmd-item ${i === 0 ? 'selected' : ''}" data-index="${i}" onclick="executeCommand(${commandItems.indexOf(item)})" role="option" aria-selected="${i === 0}">
+      <span class="cmd-item-icon" aria-hidden="true">${item.icon}</span>
       <span class="cmd-item-name">${item.name}</span>
       <span class="cmd-item-desc">${item.desc || ''}</span>
     </div>
@@ -398,6 +432,34 @@ if (cmdInput) {
   cmdInput.addEventListener('input', (e) => {
     renderCommandItems(e.target.value);
   });
+
+  cmdInput.addEventListener('keydown', (e) => {
+    const items = document.querySelectorAll('.cmd-item');
+    if (!items.length) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      items[activeCmdIndex].classList.remove('selected');
+      items[activeCmdIndex].setAttribute('aria-selected', 'false');
+      activeCmdIndex = (activeCmdIndex + 1) % items.length;
+      items[activeCmdIndex].classList.add('selected');
+      items[activeCmdIndex].setAttribute('aria-selected', 'true');
+      items[activeCmdIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      items[activeCmdIndex].classList.remove('selected');
+      items[activeCmdIndex].setAttribute('aria-selected', 'false');
+      activeCmdIndex = (activeCmdIndex - 1 + items.length) % items.length;
+      items[activeCmdIndex].classList.add('selected');
+      items[activeCmdIndex].setAttribute('aria-selected', 'true');
+      items[activeCmdIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (currentFilteredCommands[activeCmdIndex]) {
+        executeCommand(commandItems.indexOf(currentFilteredCommands[activeCmdIndex]));
+      }
+    }
+  });
 }
 
 const cmdOverlay = document.getElementById('command-overlay');
@@ -409,9 +471,9 @@ if (cmdOverlay) {
   });
 }
 
-// Keyboard shortcut Ctrl+K
+// Keyboard shortcut Ctrl+K / Cmd+K
 document.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
     e.preventDefault();
     openCommandPalette();
   }
@@ -480,10 +542,6 @@ function handleContact() {
   }, 6000);
 }
 
-// Add shake keyframe
-const style = document.createElement('style');
-style.textContent = `@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }`;
-document.head.appendChild(style);
 
 // ---- EASTER EGG (Konami Code) ----
 const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
@@ -517,20 +575,38 @@ if (easterEggHint) {
   easterEggHint.addEventListener('click', openEasterEgg);
 }
 
-// ---- TILT EFFECT on PROJECT CARDS ----
-document.querySelectorAll('.project-card, .service-card, .testi-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `translateY(-4px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
-    card.style.transition = 'none';
+// ---- 3D TILT EFFECT & SPECULAR REFLECTION on CARDS ----
+if (window.matchMedia && window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.project-card, .service-card, .testi-card').forEach(card => {
+    let rafId = null;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const tiltX = (py - 0.5) * -10;
+      const tiltY = (px - 0.5) * 10;
+
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        card.style.setProperty('--mouse-x', (px * 100).toFixed(1) + '%');
+        card.style.setProperty('--mouse-y', (py * 100).toFixed(1) + '%');
+        card.style.setProperty('--rx', tiltX.toFixed(2) + 'deg');
+        card.style.setProperty('--ry', tiltY.toFixed(2) + 'deg');
+        card.style.setProperty('--ty', '-6px');
+        card.style.setProperty('--specular-opacity', '1');
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      card.style.setProperty('--rx', '0deg');
+      card.style.setProperty('--ry', '0deg');
+      card.style.setProperty('--ty', '0px');
+      card.style.setProperty('--specular-opacity', '0');
+    });
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = '';
-  });
-});
+}
 
 // ---- SMOOTH ACTIVE NAV on SCROLL ----
 const sections = document.querySelectorAll('section[id]');
@@ -586,7 +662,7 @@ window.addEventListener('scroll', () => {
     heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
     heroContent.style.opacity = 1 - scrolled / (window.innerHeight * 0.7);
   }
-});
+}, { passive: true });
 
 // ---- GLOWING NAVBAR LINK HIGHLIGHT ----
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -603,7 +679,7 @@ window.addEventListener('scroll', () => {
   const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
   const hue = Math.floor(220 + scrollPct * 60); // blue to purple
   document.documentElement.style.setProperty('--scroll-hue', hue);
-});
+}, { passive: true });
 
 // ---- TYPING CURSOR BLINK ----
 // Already handled with CSS animation
@@ -612,25 +688,33 @@ window.addEventListener('scroll', () => {
 // (handled by skillObserver above)
 
 // ---- SERVICE CARD HOVER GLOW ----
-document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    card.style.setProperty('--gx', x + 'px');
-    card.style.setProperty('--gy', y + 'px');
+if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--gx', x + 'px');
+      card.style.setProperty('--gy', y + 'px');
+    });
   });
-});
+}
 
 // ---- VISION SECTION SPARKLE ----
 const visionSection = document.getElementById('vision');
-if (visionSection) {
-  const sparkleInterval = setInterval(() => {
-    const rect = visionSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+let isVisionVisible = false;
+
+if (visionSection && 'IntersectionObserver' in window) {
+  const visionObserver = new IntersectionObserver((entries) => {
+    isVisionVisible = entries[0].isIntersecting;
+  }, { threshold: 0.1 });
+  visionObserver.observe(visionSection);
+
+  setInterval(() => {
+    if (isVisionVisible && !document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       createSparkle(visionSection);
     }
-  }, 600);
+  }, 800);
 }
 
 function createSparkle(parent) {
@@ -647,20 +731,6 @@ function createSparkle(parent) {
     animation: sparkle-anim 1.5s ease forwards;
   `;
   parent.appendChild(sparkle);
-  
-  if (!document.querySelector('#sparkle-style')) {
-    const s = document.createElement('style');
-    s.id = 'sparkle-style';
-    s.textContent = `
-      @keyframes sparkle-anim {
-        0% { opacity: 0; transform: scale(0); }
-        50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 10px currentColor; }
-        100% { opacity: 0; transform: scale(0) translateY(-20px); }
-      }
-    `;
-    document.head.appendChild(s);
-  }
-  
   setTimeout(() => sparkle.remove(), 1500);
 }
 

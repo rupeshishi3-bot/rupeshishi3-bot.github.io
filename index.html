@@ -46,14 +46,14 @@
 <div id="cursor-dot"></div>
 
 <!-- COMMAND PALETTE -->
-<div id="command-overlay">
-  <div id="command-palette">
+<div id="command-overlay" aria-hidden="true">
+  <div id="command-palette" role="dialog" aria-modal="true" aria-label="Command Navigation Palette">
     <div class="cmd-header">
-      <span class="cmd-icon">🔍</span>
-      <input id="cmd-input" placeholder="Type a command or navigate..." autocomplete="off" />
-      <span class="cmd-close" onclick="closeCommandPalette()">ESC</span>
+      <span class="cmd-icon" aria-hidden="true">🔍</span>
+      <input id="cmd-input" placeholder="Type a command or navigate..." autocomplete="off" aria-label="Type a command or search sections and projects" />
+      <button class="cmd-close" type="button" onclick="closeCommandPalette()" aria-label="Close Command Palette">✕ ESC</button>
     </div>
-    <div class="cmd-results" id="cmd-results"></div>
+    <div class="cmd-results" id="cmd-results" role="listbox" aria-label="Search Results"></div>
     <div class="cmd-footer">
       <span>↑↓ navigate</span><span>↵ select</span><span>esc close</span>
     </div>
@@ -96,6 +96,9 @@
 <!-- HERO SECTION -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
+  <div class="hero-glow-orb hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow-orb hero-glow-2" aria-hidden="true"></div>
+  <div class="hero-glow-orb hero-glow-3" aria-hidden="true"></div>
   <div class="hero-grid-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">

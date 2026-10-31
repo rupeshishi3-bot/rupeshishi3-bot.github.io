@@ -97,27 +97,34 @@ Upgrade Rupesh Bhagwan Ishi's portfolio into a cinematic, high-performance web e
                     └───────────────────────────────┘
 ```
 
-### Staged Implementation Plan (Stages 2 through 8)
+### Staged Implementation Plan & Progress Tracking
 
-1. **Stage 2: Design Foundation & Styling**
-   - Clean up CSS variables in `src/index.css`.
-   - Implement anti-slop rules, unboxed metadata typography, and refined dark surface tokens.
-2. **Stage 3: Interactive 3D Hero & Navigation**
-   - Build `src/components/ThreeHero.tsx` using Three.js with procedural geometry, soft studio lighting, mouse parallax, and `prefers-reduced-motion` detection.
-   - Update navigation with smooth anchor links and working resume download trigger.
-3. **Stage 4: Featured Projects & All Projects Gallery**
-   - Update project data model with all 10 verified URLs, categorized tags, honest development status flags, and descriptive previews.
-   - Build the Featured Projects Bento layout and the 10-project filterable grid (`All`, `Web Apps`, `Developer Tools`, `AI Services`).
-4. **Stage 5: About, Skills Matrix, Resume & Contact**
-   - Rewrite About copy highlighting AI-assisted workflows and digital product building.
-   - Rebuild Skills section with clean domain clusters (Frontend, Full-Stack & Cloud, AI Workflows).
-   - Verify resume download button targeting `/resume.pdf`.
-   - Update contact form and social links.
-5. **Stage 6: 3D Polish, Motion & Micro-Interactions**
-   - Refine Three.js materials, camera damping, and mobile touch orientation.
-   - Ensure graceful fallback to canvas particles if WebGL is unavailable or user requests reduced motion.
-6. **Stage 7: SEO, Accessibility & Performance**
-   - Audit meta tags, schema JSON-LD, ARIA landmarks, focus-visible states, and image fallbacks.
-7. **Stage 8: Regression Testing & Verification**
-   - Run `compile_applet` and verify zero TypeScript or bundler errors.
-   - Test all 10 links, resume download, contact submission, and mobile layout.
+1. **Stage 1: Complete Audit & Preparation** — [COMPLETED]
+   - Audited all files, inspected server and static assets, identified issues.
+2. **Stage 2: Safe Baseline Backup & Integrity Repair** — [COMPLETED]
+   - Created byte-for-byte verified backup in `backup/working_baseline/`.
+   - Repaired HTML, CSS, and JS integrity without changing architecture.
+3. **Stage 3: Complete 10-Project Showcase Upgrade** — [COMPLETED]
+   - All 10 real projects installed with verified live URLs and green "Working" status indicators.
+   - 5 featured projects hierarchy, category filtering tabs, and browser mockups.
+4. **Stage 4: Premium Visual Polish & Lightweight 3D Enhancements** — [COMPLETED]
+   - Pure HTML5 + CSS3 + Vanilla JavaScript maintained. Zero external framework dependencies.
+   - Ambient animated atmospheric glow orbs (`.hero-glow-orb`) added to hero section.
+   - GPU-accelerated CSS 3D perspective (`perspective: 1200px`) and dynamic specular sheen overlay with `--mouse-x` / `--mouse-y` lighting on project cards, services, and testimonials.
+   - Animated glowing pulse-ring indicator on the green "Working" status badges.
+   - Browser mockups refined with traffic light color accents and secure badge styling.
+   - Magnetic buttons refined with fine pointer guard and smooth cubic-bezier release.
+   - Full `@media (prefers-reduced-motion: reduce)` accessibility and `:focus-visible` styling added.
+   - Mobile viewport overflow protection (`overflow-x: hidden` on `html` and `body`).
+   - Backup checksums re-verified: 100% matched.
+5. **Stage 5: Final Quality Assurance, Mobile Optimization & Production Readiness** — [COMPLETED]
+   - All 10 project cards and Live Demo URLs verified (including user-unpublished ProjectFlows URL preserved).
+   - Green "Working" status badges verified on 100% of project cards.
+   - Command Palette upgraded with full keyboard Arrow navigation, Enter selection, accessible dialog roles, and all 10 projects.
+   - Mobile optimization completed for 320px, 360px, 390px, and 430px viewports (touch targets $\ge 44$px, scaled tech orbit, side gutters on command palette).
+   - Battery & performance hardening: passive scroll listeners, `IntersectionObserver` sparkle tracking, tab visibility lifecycle pause.
+   - Runtime `<style>` injections eliminated by placing keyframes in `style.css`.
+   - Accessibility verified: `:focus-visible`, dialog roles, `aria-expanded`, `aria-hidden` sync.
+   - Baseline backup in `backup/working_baseline/` verified 100% untouched.
+   - `compile_applet` passed and JavaScript syntax validated with 0 errors.
+   - Static GitHub Pages compatibility confirmed. Zero deployments to GitHub without user authorization.
